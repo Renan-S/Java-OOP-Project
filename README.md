@@ -1,2 +1,2 @@
-# Java-POO-Project
-Project for the POO college discipline
+# Java-OOP-Project
+Project for the OOP college discipline
