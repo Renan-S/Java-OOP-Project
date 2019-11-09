@@ -1,6 +1,6 @@
 package ui;
 
-public class VendaUI {
+public class ProdutoUI {
 
 	public static void main(String[] args) {
 
