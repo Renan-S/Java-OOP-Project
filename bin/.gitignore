@@ -1,2 +1,6 @@
-/ui/
+/control/
+/exception/
 /model/
+/repository/
+/ui/
+/util/
