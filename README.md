@@ -1,5 +1,4 @@
-# Java-OOP-Project
-Project for the OOP college discipline
+# About this project
 
 This project was made by four people and have the following pre requisites:
 1 - Be made in one month and be shown to our classmates;
