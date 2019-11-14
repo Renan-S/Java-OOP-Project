@@ -2,12 +2,14 @@ package model;
 
 public class Funcionario {
 	
-	private String id;
 	private String nome;
+	private String sexo;
 	private String email;
 	private String rg;
 	private String clt;
 	private String cnpj;
+	private long reservista;
+	private String funcao;
 	private Endereco endereco;
 
 	public String getNome() {
@@ -15,12 +17,6 @@ public class Funcionario {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
 	}
 	public String getEmail() {
 		return email;
@@ -51,5 +47,23 @@ public class Funcionario {
 	}
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+	public String getSexo() {
+		return sexo;
+	}
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+	public long getReservista() {
+		return reservista;
+	}
+	public void setReservista(long reservista) {
+		this.reservista = reservista;
+	}
+	public String getFuncao() {
+		return funcao;
+	}
+	public void setFuncao(String funcao) {
+		this.funcao = funcao;
 	}
 }

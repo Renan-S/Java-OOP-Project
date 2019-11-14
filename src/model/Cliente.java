@@ -3,6 +3,7 @@ package model;
 public class Cliente {
 	
 	private String nome;
+	private String sexo;
 	private String cpf;
 	private String email;
 	private Endereco endereco;
@@ -30,5 +31,11 @@ public class Cliente {
 	}
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+	public String getSexo() {
+		return sexo;
+	}
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
 	}
 }

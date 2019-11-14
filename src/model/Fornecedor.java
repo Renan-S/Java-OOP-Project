@@ -6,6 +6,7 @@ public class Fornecedor {
 	private Endereco endereco;
 	private String servico;
 	private Produto produto;
+	private String email;
 	
 	public String getNome() {
 		return nome;
@@ -37,5 +38,10 @@ public class Fornecedor {
 	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
-
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }
