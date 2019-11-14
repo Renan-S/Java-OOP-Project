@@ -2,7 +2,6 @@ package model;
 
 public class Cliente {
 	
-	private long id;
 	private String nome;
 	private String cpf;
 	private String email;
@@ -19,12 +18,6 @@ public class Cliente {
 	}
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
-	}
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
 	}
 	public String getEmail() {
 		return email;

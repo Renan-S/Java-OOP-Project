@@ -1,5 +1,5 @@
 package model;
 
-public class EmpTerceirizadas {
+public class EmpTerceirizadas extends Fornecedor{
 
 }

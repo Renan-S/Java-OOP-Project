@@ -9,7 +9,6 @@ public class Funcionario {
 	private String clt;
 	private String cnpj;
 	private Endereco endereco;
-	
 
 	public String getNome() {
 		return nome;

@@ -7,6 +7,12 @@ public class Endereco {
 	private String cidade;
 	private int numero;
 	
+	@Override
+	public String toString() {
+		return "Endereco [rua=" + rua + ", cep=" + cep + ", bairro=" + 
+	bairro + ", cidade=" + cidade + ", numero="+ numero + "]";
+	}
+	
 	public String getRua() {
 		return rua;
 	}
