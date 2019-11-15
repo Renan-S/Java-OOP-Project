@@ -8,6 +8,11 @@ public class Cliente {
 	private String email;
 	private Endereco endereco;
 	
+	@Override
+	public String toString() {
+		return "Cliente [nome=" + nome + ", sexo=" + sexo + ", cpf=" + cpf + ", email=" + email + ", endereco="
+				+ endereco + "]";
+	}
 	public String getNome() {
 		return nome;
 	}

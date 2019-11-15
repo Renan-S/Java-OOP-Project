@@ -8,10 +8,18 @@ public class Funcionario {
 	private String rg;
 	private String clt;
 	private String cnpj;
-	private long reservista;
 	private String funcao;
 	private Endereco endereco;
-
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Funcionario [nome=").append(nome).append(", sexo=").append(sexo).append(", email=")
+				.append(email).append(", rg=").append(rg).append(", clt=").append(clt).append(", cnpj=").append(cnpj)
+				.append(", funcao=").append(funcao).append(", endereco=").append(endereco).append("]");
+		return builder.toString();
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -53,12 +61,6 @@ public class Funcionario {
 	}
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
-	}
-	public long getReservista() {
-		return reservista;
-	}
-	public void setReservista(long reservista) {
-		this.reservista = reservista;
 	}
 	public String getFuncao() {
 		return funcao;
