@@ -2,11 +2,22 @@ package model;
 
 public class Fornecedor {
 	private String nome;
-	private String responsavel;
+	private String responsavel; 
+	private String cnpj;
 	private Endereco endereco;
-	private String servico;
 	private Produto produto;
 	private String email;
+	
+	//(Cadastrará produto)
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Fornecedor [nome=").append(nome).append(", responsavel=").append(responsavel).append(", cnpj=")
+				.append(cnpj).append(", endereco=").append(endereco).append(", produto=").append(produto)
+				.append(", email=").append(email).append("]");
+		return builder.toString();
+	}
 	
 	public String getNome() {
 		return nome;
@@ -26,12 +37,7 @@ public class Fornecedor {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	public String getServico() {
-		return servico;
-	}
-	public void setServico(String servico) {
-		this.servico = servico;
-	}
+	
 	public Produto getProduto() {
 		return produto;
 	}
@@ -43,5 +49,11 @@ public class Fornecedor {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getCnpj() {
+		return cnpj;
+	}
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 	}
 }
