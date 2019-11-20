@@ -6,6 +6,7 @@ public class Endereco {
 	private String bairro;
 	private String cidade;
 	private int numero;
+	private String complemento;
 	
 	@Override
 	public String toString() {
@@ -42,5 +43,13 @@ public class Endereco {
 	}
 	public void setNumero(int numero) {
 		this.numero = numero;
+	}
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
 	}
 }
