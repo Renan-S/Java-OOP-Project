@@ -1,6 +1,7 @@
 package model;
 
 public class Produto {
+	private int id; //identificador único;
 	private String nome;
 	private String tipo;
 	private String fabricacao;
@@ -8,7 +9,8 @@ public class Produto {
 	private double valor;
 	private int quantidade;
 	
-	public Produto(String nome, String tipo, String fabricacao, double valor, int quantidade, String validade) {
+	public Produto(int id, String nome, String tipo, String fabricacao, double valor, int quantidade, String validade) {
+		this.id = id;
 		this.nome = nome;
 		this.tipo = tipo;
 		this.fabricacao = fabricacao;
@@ -20,12 +22,19 @@ public class Produto {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Produto [nome=").append(nome).append(", tipo=").append(tipo).append(", fabricacao=")
-				.append(fabricacao).append(", valor=").append(valor).append(", quantidade=").append(quantidade)
-				.append(", validade=").append(validade).append("]");
+		builder.append("Produto [codigo=").append(id).append(", nome=").append(nome).append(", tipo=").append(tipo)
+				.append(", fabricacao=").append(fabricacao).append(", validade=").append(validade).append(", valor=")
+				.append(valor).append(", quantidade=").append(quantidade).append("]");
 		return builder.toString();
 	}
+	
+	public int getId() {
+		return id;
+	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getNome() {
 		return nome;
 	}

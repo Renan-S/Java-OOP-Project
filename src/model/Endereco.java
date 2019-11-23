@@ -1,6 +1,6 @@
 package model;
 
-public class Endereco {
+public abstract class Endereco {
 	private String rua;
 	private String cep;
 	private String bairro;

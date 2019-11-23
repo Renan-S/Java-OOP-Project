@@ -1,5 +1,8 @@
 package exception;
 
-public class ProdutoExcecao {
-
+public class ProdutoExcecao extends Exception{
+	
+	public ProdutoExcecao(String message){
+        super(message);
+    }
 }
