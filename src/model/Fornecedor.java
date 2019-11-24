@@ -1,41 +1,38 @@
 package model;
 
-public class Fornecedor {
-	private String nome;
+public class Fornecedor extends Pessoa {
+	//private String nome;
 	private String responsavel; 
 	private String cnpj;
-	private Endereco endereco;
+	//private Endereco endereco;
 	private Produto produto;
-	private String email;
+	//private String email;
 	
-	//(Cadastrará produto)
+	//(Cadastrará produto) - Atributos comentados estão sendo herdados
+	
+	
+	public Fornecedor(String rua, String cep, String bairro, String cidade, int numero, String complemento, String nome,
+			String sexo, String email, String cpf) {
+		super(rua, cep, bairro, cidade, numero, complemento, nome, sexo, email, cpf);
+	}
 	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Fornecedor [nome=").append(nome).append(", responsavel=").append(responsavel).append(", cnpj=")
-				.append(cnpj).append(", endereco=").append(endereco).append(", produto=").append(produto)
-				.append(", email=").append(email).append("]");
+		builder.append("Fornecedor [responsavel=").append(responsavel).append(", cnpj=").append(cnpj)
+				.append(", produto=").append(produto).append("]");
 		return builder.toString();
 	}
 	
-	public String getNome() {
-		return nome;
+	public Fornecedor() {
+		
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+
 	public String getResponsavel() {
 		return responsavel;
 	}
 	public void setResponsavel(String responsavel) {
 		this.responsavel = responsavel;
-	}
-	public Endereco getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
 	}
 	
 	public Produto getProduto() {
@@ -44,12 +41,7 @@ public class Fornecedor {
 	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	
 	public String getCnpj() {
 		return cnpj;
 	}

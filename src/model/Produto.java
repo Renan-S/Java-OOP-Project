@@ -9,7 +9,7 @@ public class Produto {
 	private double valor;
 	private int quantidade;
 	
-	public Produto(int id, String nome, String tipo, String fabricacao, double valor, int quantidade, String validade) {
+	/*public Produto(int id, String nome, String tipo, String fabricacao, double valor, int quantidade, String validade) {
 		this.id = id;
 		this.nome = nome;
 		this.tipo = tipo;
@@ -17,6 +17,10 @@ public class Produto {
 		this.valor = valor;
 		this.quantidade = quantidade;
 		this.validade = validade;
+	} */
+	
+	public Produto () {
+		
 	}
 
 	@Override
