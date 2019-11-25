@@ -9,7 +9,6 @@ public abstract class Endereco {
 	private String complemento;
 	
 	public Endereco(String rua, String cep, String bairro, String cidade, int numero, String complemento) {
-		super();
 		this.rua = rua;
 		this.cep = cep;
 		this.bairro = bairro;

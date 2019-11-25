@@ -19,11 +19,13 @@ public class Principal {
 						UICliente uiCliente = new UICliente();
 						uiCliente.showMenuCliente();
 						break;
-					//case 2: "Funcionarios";
+					case 2: 
+						FuncionarioUI funcionarioUI = new FuncionarioUI();
+						funcionarioUI.showMenuFuncionario(); 
 					//case 3: "Fornecedores";
 					case 4:
-						ProdutoUI produtoui = new ProdutoUI();
-						produtoui.showMenuProduto(); 
+						ProdutoUI produtoUI = new ProdutoUI();
+						produtoUI.showMenuProduto(); 
 					//case 5: "Vendas"
 					//case 6: "Compras"
 					case 0:

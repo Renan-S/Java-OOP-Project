@@ -1,32 +1,35 @@
 package model;
 
-public class Produto {
+public class Produto extends Pessoa {
 	private int id; //identificador único;
-	private String nome;
+	private String nomeproduto;
 	private String tipo;
 	private String fabricacao;
 	private String validade;
 	private double valor;
 	private int quantidade;
 	
-	/*public Produto(int id, String nome, String tipo, String fabricacao, double valor, int quantidade, String validade) {
+	public Produto(String rua, String cep, String bairro, String cidade, int numero, String complemento, String nome,
+			String sexo, String email, String cpf, int id, String nomeproduto, String tipo, String fabricacao,
+			String validade, double valor, int quantidade) {
+		super(rua, cep, bairro, cidade, numero, complemento, nome, sexo, email, cpf);
 		this.id = id;
-		this.nome = nome;
+		this.nomeproduto = nomeproduto;
 		this.tipo = tipo;
 		this.fabricacao = fabricacao;
+		this.validade = validade;
 		this.valor = valor;
 		this.quantidade = quantidade;
-		this.validade = validade;
-	} */
-	
-	public Produto () {
-		
 	}
 
+	public Produto() {
+		
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Produto [codigo=").append(id).append(", nome=").append(nome).append(", tipo=").append(tipo)
+		builder.append("Produto [codigo=").append(id).append(", nomeproduto=").append(nomeproduto).append(", tipo=").append(tipo)
 				.append(", fabricacao=").append(fabricacao).append(", validade=").append(validade).append(", valor=")
 				.append(valor).append(", quantidade=").append(quantidade).append("]");
 		return builder.toString();
@@ -39,11 +42,11 @@ public class Produto {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getNome() {
-		return nome;
+	public String getNomeproduto() {
+		return nomeproduto;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNomeProduto(String nomeproduto) {
+		this.nomeproduto = nomeproduto;
 	}
 	public String getFabricacao() {
 		return fabricacao;

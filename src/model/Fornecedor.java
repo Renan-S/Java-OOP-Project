@@ -1,6 +1,6 @@
 package model;
 
-public class Fornecedor extends Pessoa {
+public class Fornecedor extends Produto {
 	//private String nome;
 	private String responsavel; 
 	private String cnpj;
@@ -10,10 +10,18 @@ public class Fornecedor extends Pessoa {
 	
 	//(Cadastrará produto) - Atributos comentados estão sendo herdados
 	
-	
 	public Fornecedor(String rua, String cep, String bairro, String cidade, int numero, String complemento, String nome,
-			String sexo, String email, String cpf) {
-		super(rua, cep, bairro, cidade, numero, complemento, nome, sexo, email, cpf);
+			String sexo, String email, String cpf, int id, String nomeproduto, String tipo, String fabricacao,
+			String validade, double valor, int quantidade, String responsavel, String cnpj, Produto produto) {
+		super(rua, cep, bairro, cidade, numero, complemento, nome, sexo, email, cpf, id, nomeproduto, tipo, fabricacao,
+				validade, valor, quantidade);
+		this.responsavel = responsavel;
+		this.cnpj = cnpj;
+		this.produto = produto;
+	}
+	
+	public Fornecedor() {
+		
 	}
 	
 	@Override
@@ -24,10 +32,6 @@ public class Fornecedor extends Pessoa {
 		return builder.toString();
 	}
 	
-	public Fornecedor() {
-		
-	}
-
 	public String getResponsavel() {
 		return responsavel;
 	}

@@ -40,24 +40,24 @@ public class ProdutoUI {
     }
     
     private void createProduto(){
-        Produto produtoui = new Produto();
+        Produto produtoUI = new Produto();
         System.out.println("Crie um idenficador único para o produto");
-        produtoui.setId(s.nextInt());
+        produtoUI.setId(s.nextInt());
         System.out.println("Insira o nome");
-        produtoui.setNome(s.nextLine());
+        produtoUI.setNomeProduto(s.nextLine());
         System.out.println("Defina o tipo");
-        produtoui.setTipo(s.nextLine());
+        produtoUI.setTipo(s.nextLine());
         System.out.println("Insira a data de fabricação");
-        produtoui.setFabricacao(s.nextLine());
+        produtoUI.setFabricacao(s.nextLine());
         System.out.println("Digite a data de validade");
-        produtoui.setValidade(s.nextLine());
+        produtoUI.setValidade(s.nextLine());
         System.out.println("Defina o valor em reais");
-        produtoui.setValor(s.nextDouble());
+        produtoUI.setValor(s.nextDouble());
         System.out.println("Digite a quantidade");
-        produtoui.setQuantidade(s.nextInt());
+        produtoUI.setQuantidade(s.nextInt());
 
         try {
-            Fachada.getInstancia().createProduto(produtoui);
+            Fachada.getInstancia().createProduto(produtoUI);
             System.out.println("Produto criado");
         }catch (ProdutoExcecao e){
         	e.printStackTrace();
@@ -83,9 +83,9 @@ public class ProdutoUI {
 		int id = s.nextInt();
 		
 		try {
-			Produto produtoui = Fachada.getInstancia().searchProdutoPorId(id);
-			if (produtoui != null) {
-				System.out.println(produtoui.toString());
+			Produto produtoUI = Fachada.getInstancia().searchProdutoPorId(id);
+			if (produtoUI != null) {
+				System.out.println(produtoUI.toString());
 			} else {
 				System.out.println("Produto inexistente, tente novamente");
 			}
@@ -96,24 +96,24 @@ public class ProdutoUI {
 	}
     
     private void updateProduto() {
-    	 Produto produtoui = new Produto();
+    	 Produto produtoUI = new Produto();
          System.out.println("Crie um idenficador único para o produto");
-         produtoui.setId(s.nextInt());
+         produtoUI.setId(s.nextInt());
          System.out.println("Insira o nome");
-         produtoui.setNome(s.nextLine());
+         produtoUI.setNomeProduto(s.nextLine());
          System.out.println("Defina o tipo");
-         produtoui.setTipo(s.nextLine());
+         produtoUI.setTipo(s.nextLine());
          System.out.println("Insira a data de fabricação");
-         produtoui.setFabricacao(s.nextLine());
+         produtoUI.setFabricacao(s.nextLine());
          System.out.println("Digite a data de validade");
-         produtoui.setValidade(s.nextLine());
+         produtoUI.setValidade(s.nextLine());
          System.out.println("Defina o valor em reais");
-         produtoui.setValor(s.nextDouble());
+         produtoUI.setValor(s.nextDouble());
          System.out.println("Digite a quantidade");
-         produtoui.setQuantidade(s.nextInt());
+         produtoUI.setQuantidade(s.nextInt());
 
          try {
-             Fachada.getInstancia().updateProduto(produtoui);
+             Fachada.getInstancia().updateProduto(produtoUI);
              System.out.println("Produto modificado e atualizado");
          }catch (ProdutoExcecao e){
          	e.printStackTrace();

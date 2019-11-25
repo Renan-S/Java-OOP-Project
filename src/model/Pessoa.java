@@ -7,10 +7,7 @@ public abstract class Pessoa extends Endereco{
 	private String email;
 	private String cpf;
 	
-	public Pessoa (String rua, String cep, String bairro, String cidade, int numero, String complemento) {
-		super(rua, cep, bairro, cidade, numero, complemento);
-	}
-	
+	//Construtor de acesso para as classes filhas
 	public Pessoa(String rua, String cep, String bairro, String cidade, int numero, String complemento, String nome,
 			String sexo, String email, String cpf) {
 		super(rua, cep, bairro, cidade, numero, complemento);
@@ -20,6 +17,14 @@ public abstract class Pessoa extends Endereco{
 		this.cpf = cpf;
 	}
 	
+	//Segundo contrutor somente para filtrar atributos desnecessários à Fornecedor
+	public Pessoa(String rua, String cep, String bairro, String cidade, int numero, String complemento, String nome,
+			String email) {
+		super(rua, cep, bairro, cidade, numero, complemento);
+		this.nome = nome;
+		this.email = email;
+	}
+
 	public Pessoa() {
 		
 	}

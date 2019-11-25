@@ -56,7 +56,7 @@ public class ProdutoControlador implements IProdutoControlador {
     	}
 
         if (!produtoRepositorio.errorProduto(produto.getId())){
-            throw new ProdutoExcecao("Nenhum carro com a placa " + produto.getId());
+            throw new ProdutoExcecao("Nenhum produto com o Id " + produto.getId());
         }
         
         produtoRepositorio.updateProduto(produto);
