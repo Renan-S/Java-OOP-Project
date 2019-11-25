@@ -1,6 +1,6 @@
 package model;
 
-public class Fornecedor extends Produto {
+public class Fornecedor extends Pessoa {
 	//private String nome;
 	private String responsavel; 
 	private String cnpj;
@@ -8,22 +8,15 @@ public class Fornecedor extends Produto {
 	private Produto produto;
 	//private String email;
 	
-	//(Cadastrará produto) - Atributos comentados estão sendo herdados
-	
-	public Fornecedor(String rua, String cep, String bairro, String cidade, int numero, String complemento, String nome,
-			String sexo, String email, String cpf, int id, String nomeproduto, String tipo, String fabricacao,
-			String validade, double valor, int quantidade, String responsavel, String cnpj, Produto produto) {
-		super(rua, cep, bairro, cidade, numero, complemento, nome, sexo, email, cpf, id, nomeproduto, tipo, fabricacao,
-				validade, valor, quantidade);
-		this.responsavel = responsavel;
-		this.cnpj = cnpj;
-		this.produto = produto;
-	}
-	
 	public Fornecedor() {
 		
 	}
 	
+	public Fornecedor(String nome, String sexo, String email, String cpf, Endereco endereco) {
+		super(nome, sexo, email, cpf, endereco);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

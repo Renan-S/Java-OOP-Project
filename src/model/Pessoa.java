@@ -1,28 +1,20 @@
 package model;
 
-public abstract class Pessoa extends Endereco{
+public abstract class Pessoa{
 	
 	private String nome;
 	private String sexo;
 	private String email;
 	private String cpf;
+	private Endereco endereco;
 	
-	//Construtor de acesso para as classes filhas
-	public Pessoa(String rua, String cep, String bairro, String cidade, int numero, String complemento, String nome,
-			String sexo, String email, String cpf) {
-		super(rua, cep, bairro, cidade, numero, complemento);
+	public Pessoa(String nome, String sexo, String email, String cpf, Endereco endereco) {
+		super();
 		this.nome = nome;
 		this.sexo = sexo;
 		this.email = email;
 		this.cpf = cpf;
-	}
-	
-	//Segundo contrutor somente para filtrar atributos desnecessários à Fornecedor
-	public Pessoa(String rua, String cep, String bairro, String cidade, int numero, String complemento, String nome,
-			String email) {
-		super(rua, cep, bairro, cidade, numero, complemento);
-		this.nome = nome;
-		this.email = email;
+		this.endereco = endereco;
 	}
 
 	public Pessoa() {
@@ -60,5 +52,13 @@ public abstract class Pessoa extends Endereco{
 	}
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 }

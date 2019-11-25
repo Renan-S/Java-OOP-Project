@@ -5,12 +5,10 @@ public class Cliente extends Pessoa {
 	private String formapagamento;
 	private int desconto;
 	
-	//Herdando tudo de Pessoa; que tinha herdado de Endereco.
-	public Cliente(String rua, String cep, String bairro, String cidade, int numero, String complemento, String nome,
-			String sexo, String email, String cpf) {
-		super(rua, cep, bairro, cidade, numero, complemento, nome, sexo, email, cpf);
+	public Cliente(String nome, String sexo, String email, String cpf, Endereco endereco) {
+		super(nome, sexo, email, cpf, endereco);
 	}
-	
+
 	public Cliente (){
 		
 	}

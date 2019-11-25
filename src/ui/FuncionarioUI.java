@@ -3,6 +3,7 @@ package ui;
 import java.util.Scanner;
 
 import control.Fachada;
+import model.Endereco;
 import model.Funcionario;
 import exception.FuncionarioExcecao;
 
@@ -55,16 +56,21 @@ public class FuncionarioUI {
         funcionarioUI.setClt(s.nextLine());
         System.out.println("Insira a função que deseja criar");
         funcionarioUI.setFuncao(s.nextLine());
+        
+        Endereco endereco = new Endereco();
+        
 		System.out.println("Endereco - Digite a rua");
-		funcionarioUI.setRua(s.nextLine());
+		endereco.setRua(s.nextLine());
 		System.out.println("Endereco - Digite o bairro");
-		funcionarioUI.setBairro(s.nextLine());
+		endereco.setBairro(s.nextLine());
 		System.out.println("Endereco - Digite o numero");
-		funcionarioUI.setNumero(s.nextInt());
+		endereco.setNumero(s.nextInt());
 		System.out.println("Endereco - Digite o complemento");
-		funcionarioUI.setComplemento(s.next());
+		endereco.setComplemento(s.next());
 		System.out.println("Endereco - Digite o cep");
-		funcionarioUI.setCep(s.nextLine());
+		endereco.setCep(s.nextLine());
+		
+		funcionarioUI.setEndereco(endereco);
 
         try {
             Fachada.getInstancia().createFuncionario(funcionarioUI);
@@ -121,16 +127,21 @@ public class FuncionarioUI {
         funcionarioUI.setClt(s.nextLine());
         System.out.println("Insira a função que deseja criar");
         funcionarioUI.setFuncao(s.nextLine());
+        
+        Endereco endereco = new Endereco();
+        
 		System.out.println("Endereco - Digite a rua");
-		funcionarioUI.setRua(s.nextLine());
+		endereco.setRua(s.nextLine());
 		System.out.println("Endereco - Digite o bairro");
-		funcionarioUI.setBairro(s.nextLine());
+		endereco.setBairro(s.nextLine());
 		System.out.println("Endereco - Digite o numero");
-		funcionarioUI.setNumero(s.nextInt());
+		endereco.setNumero(s.nextInt());
 		System.out.println("Endereco - Digite o complemento");
-		funcionarioUI.setComplemento(s.next());
+		endereco.setComplemento(s.next());
 		System.out.println("Endereco - Digite o cep");
-		funcionarioUI.setCep(s.nextLine());
+		endereco.setCep(s.nextLine());
+		
+		funcionarioUI.setEndereco(endereco);
 		
          try {
              Fachada.getInstancia().updateFuncionario(funcionarioUI);

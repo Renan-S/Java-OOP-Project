@@ -5,6 +5,7 @@ import java.util.Scanner;
 import control.Fachada;
 import exception.ClienteExcecao;
 import model.Cliente;
+import model.Endereco;
 
 public class UICliente {
 	
@@ -49,16 +50,20 @@ public class UICliente {
 		c.setEmail(s.nextLine());
 		System.out.println("Informe qual será a forma de pagamento");
 		c.setFormapagamento(s.nextLine());
+		
+		Endereco endereco = new Endereco();
 		System.out.println("Endereco - Digite a rua");
-		c.setRua(s.nextLine());
+		endereco.setRua(s.nextLine());
 		System.out.println("Endereco - Digite o bairro");
-		c.setBairro(s.nextLine());
+		endereco.setBairro(s.nextLine());
 		System.out.println("Endereco - Digite o numero");
-		c.setNumero(s.nextInt());
+		endereco.setNumero(s.nextInt());
 		System.out.println("Endereco - Digite o complemento");
-		c.setComplemento(s.next());
+		endereco.setComplemento(s.next());
 		System.out.println("Endereco - Digite o cep");
-		c.setCep(s.nextLine());
+		endereco.setCep(s.nextLine());
+		
+		c.setEndereco(endereco);
 		
 		try {
 			Fachada.getInstancia().implementarDesconto(c);
@@ -116,16 +121,20 @@ public class UICliente {
 		c.setEmail(s.nextLine());
 		System.out.println("Informe qual será a forma de pagamento");
 		c.setFormapagamento(s.nextLine());
+		
+		Endereco endereco = new Endereco();
 		System.out.println("Endereco - Digite a rua");
-		c.setRua(s.nextLine());
+		endereco.setRua(s.nextLine());
 		System.out.println("Endereco - Digite o bairro");
-		c.setBairro(s.nextLine());
+		endereco.setBairro(s.nextLine());
 		System.out.println("Endereco - Digite o numero");
-		c.setNumero(s.nextInt());
+		endereco.setNumero(s.nextInt());
 		System.out.println("Endereco - Digite o complemento");
-		c.setComplemento(s.next());
+		endereco.setComplemento(s.next());
 		System.out.println("Endereco - Digite o cep");
-		c.setCep(s.nextLine());
+		endereco.setCep(s.nextLine());
+		
+		c.setEndereco(endereco);
 		
 		try {
 			Fachada.getInstancia().implementarDesconto(c);

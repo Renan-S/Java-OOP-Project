@@ -1,6 +1,6 @@
 package model;
 
-public class Produto extends Pessoa {
+public class Produto {
 	private int id; //identificador único;
 	private String nomeproduto;
 	private String tipo;
@@ -8,19 +8,6 @@ public class Produto extends Pessoa {
 	private String validade;
 	private double valor;
 	private int quantidade;
-	
-	public Produto(String rua, String cep, String bairro, String cidade, int numero, String complemento, String nome,
-			String sexo, String email, String cpf, int id, String nomeproduto, String tipo, String fabricacao,
-			String validade, double valor, int quantidade) {
-		super(rua, cep, bairro, cidade, numero, complemento, nome, sexo, email, cpf);
-		this.id = id;
-		this.nomeproduto = nomeproduto;
-		this.tipo = tipo;
-		this.fabricacao = fabricacao;
-		this.validade = validade;
-		this.valor = valor;
-		this.quantidade = quantidade;
-	}
 
 	public Produto() {
 		
