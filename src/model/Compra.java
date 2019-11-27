@@ -1,15 +1,21 @@
 package model;
 
 public class Compra {
+	private int id;
 	private Produto produto;
 	private Cliente cliente;
-	
-	//Produto será instanciado na UI
 	
 	public Compra() {
 		
 	}
 	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
 	public Produto getProduto() {
 		return produto;
 	}
@@ -22,6 +28,5 @@ public class Compra {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
 	
 }

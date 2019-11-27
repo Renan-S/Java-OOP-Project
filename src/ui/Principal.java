@@ -26,16 +26,21 @@ public class Principal {
 					case 4:
 						ProdutoUI produtoUI = new ProdutoUI();
 						produtoUI.showMenuProduto(); 
-					//case 5: "Vendas"
-					//case 6: "Compras"
+					case 5:
+						VendaUI vendaUI = new VendaUI();
+						vendaUI.showMenuVenda(); 
+					case 6: 
+						CompraUI compraUI = new CompraUI();
+						compraUI.showMenuCompra();
 					case 0:
 						System.out.println("Obrigado por utilizar o Sistema");
 					default:
 						System.out.println("Opcao invalida");
 						break;
 					}
-		}while(opcao!=0);
+		}while(opcao != 0);
 		s.close();
+	
 	}
 	
 }

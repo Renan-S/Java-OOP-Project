@@ -13,7 +13,7 @@ public class UICliente {
 	Scanner s = new Scanner(System.in);
 	
 	public void showMenuCliente() {
-		System.out.println("Escolha uma das opcoes\n1 Cadastrar Cliente\n2 Procurar Cliente\n3 Remover Cliente\n4 Pesquisar Cliente Endereco ");
+		System.out.println("Escolha uma das opcoes\n1 Cadastrar Cliente\n2 Procurar Cliente\n3 Remover Cliente\n4 Pesquisar Cliente Endereco /n5 Voltar ao menu principal");
 		
 		opcao = s.nextInt();
 		
@@ -32,6 +32,8 @@ public class UICliente {
 			break;*/
 		case 4:
 			atualizarCliente();
+		case 5:
+			break;
 		default:
 			System.out.println("Opcao invalida");
 			break;

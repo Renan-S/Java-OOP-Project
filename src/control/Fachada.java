@@ -3,14 +3,20 @@ package control;
 import exception.ClienteExcecao;
 import exception.FuncionarioExcecao;
 import exception.ProdutoExcecao;
+import exception.CompraExcecao;
+import exception.VendaExcecao;
 import model.Cliente;
 import model.Funcionario;
 import model.Produto;
+import model.Compra;
+import model.Venda;
 
-public class Fachada implements IClienteControlador, IProdutoControlador, IFuncionarioControlador {
+public class Fachada implements IClienteControlador, IProdutoControlador, IFuncionarioControlador, ICompraControlador, IVendaControlador {
 	private IClienteControlador controladorCliente;
 	private IFuncionarioControlador controladorFuncionario;
 	private IProdutoControlador controladorProduto;
+	private ICompraControlador controladorCompra;
+	private IVendaControlador controladorVenda;
 	
 	private static Fachada instancia;
 	
@@ -24,8 +30,11 @@ public class Fachada implements IClienteControlador, IProdutoControlador, IFunci
 		controladorCliente = ClienteControlador.getInstancia();
 		controladorFuncionario = FuncionarioControlador.getInstancia();
 		controladorProduto = ProdutoControlador.getInstancia();
+		controladorCompra= CompraControlador.getInstancia();
+		controladorVenda = VendaControlador.getInstancia();
 	}
 
+	
 //FACHADA CLIENTE
 	@Override
 	public void cadastrarCliente(Cliente c) throws ClienteExcecao {
@@ -58,6 +67,7 @@ public class Fachada implements IClienteControlador, IProdutoControlador, IFunci
 		controladorCliente.implementarDesconto(c);
 	}
 	
+	
 	//FACHADA FUNCIONARIO
 	@Override
 	public void createFuncionario(Funcionario funcionario) throws FuncionarioExcecao {
@@ -81,6 +91,7 @@ public class Fachada implements IClienteControlador, IProdutoControlador, IFunci
 		
 	}
 	
+	
 	//FACHADA PRODUTO
 	@Override
 	public void createProduto(Produto produto) throws ProdutoExcecao {
@@ -98,6 +109,45 @@ public class Fachada implements IClienteControlador, IProdutoControlador, IFunci
 	public void updateProduto(Produto produto) throws ProdutoExcecao {
 		controladorProduto.updateProduto(produto);
 	}
+	
+	//FACHADA VENDA
+	@Override
+	public void createVenda(Venda venda) throws VendaExcecao {
+		
+	}
+	@Override
+	public Venda searchVendaPorId(int id) throws VendaExcecao {
+		return controladorVenda.searchVendaPorId(id);
+	}
+	@Override
+	public void deleteVenda(int id) throws VendaExcecao {
+		controladorVenda.deleteVenda(id);
+	}
+	@Override
+	public void updateVenda(Venda venda) throws VendaExcecao {
+		controladorVenda.updateVenda(venda);
+	}
+	
+	
+	//FACHADA COMPRA
+	@Override
+	public void createCompra(Compra compra) throws CompraExcecao {
+		
+	}
+	@Override
+	public Compra searchCompraPorId(int id) throws CompraExcecao {
+		return controladorCompra.searchCompraPorId(id);
+	}
+	@Override
+	public void deleteCompra(int id) throws CompraExcecao {
+		controladorCompra.deleteCompra(id);
+	}
+	@Override
+	public void updateCompra(Compra compra) throws CompraExcecao {
+		controladorCompra.updateCompra(compra);
+	}
+	
+	
 	
 	//PROXIMAS FACHADAS/ATUALIZAR
 }

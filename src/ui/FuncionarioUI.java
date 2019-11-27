@@ -15,7 +15,7 @@ public class FuncionarioUI {
 
         int opcao;
         
-        System.out.println("Escolha das opções de Funcionario \n1 - Inserir \n2 - Remover \n3 - Pesquisar \n4 - Atualizar \n5 -Voltar");
+        System.out.println("Escolha das opções de Funcionario \n1 - Inserir \n2 - Remover \n3 - Pesquisar \n4 - Atualizar \n5 - Voltar ao menu principal");
         opcao = s.nextInt();
 
         switch (opcao){
