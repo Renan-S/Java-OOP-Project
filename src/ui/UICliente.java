@@ -1,23 +1,19 @@
 package ui;
 
-import java.util.Scanner;
+
 
 import control.Fachada;
 import exception.ClienteExcecao;
 import model.Cliente;
 import model.Endereco;
 
-public class UICliente {
-	
-	int opcao;
-	Scanner s = new Scanner(System.in);
-	
-	public void showMenuCliente() {
-		System.out.println("escolha uma da opcao\n1 Cadastrar Cliente\n2 Procurar Cliente\n3 Remover Cliente\n4 Pesquisar Cliente Endereco ");
-		
-		opcao = s.nextInt();
-		
-		switch(opcao) {
+public class UICliente extends UI {
+	@Override
+	public void menu() {
+		boolean continuar = true;
+		do {
+			println("Escolha uma das opcoes\n1 Cadastrar Cliente\n2 Procurar Cliente\n3 Remover Cliente\n4 Atualizar Cliente\n5 Voltar ao menu principal ");
+		switch(scanInt()) {
 		case 1:
 			cadastrarCliente();
 			break;
@@ -27,81 +23,82 @@ public class UICliente {
 		case 3:
 			removerCliente();
 			break;
-		/*case 4:
-			pesquisarClienteEndereco();
-			break;*/
 		case 4:
 			atualizarCliente();
+		case 5:
+			continuar = false;
+			break;
 		default:
-			System.out.println("opcao invalida");
+			println("Opcao invalida");
 			break;
 		}
+	}while(continuar);
 	}
+		
 
 	private void atualizarCliente() {
 		Cliente c = new Cliente();
-		System.out.println("informe o nome do cliente");
-		c.setNome(s.nextLine());
-		System.out.println("informe o sexo do cliente");
-		c.setSexo(s.nextLine());
-		System.out.println("informe o CPF do cliente");
-		c.setCpf(s.nextLine());
-		System.out.println("informe o email do cliente");
-		c.setEmail(s.nextLine());
+		println("Informe o nome do cliente");
+		c.setNome(scanTxt());
+		println("Informe o sexo do cliente");
+		c.setSexo(scanTxt());
+		println("Informe o CPF do cliente");
+		c.setCpf(scanTxt());
+		println("Informe o email do cliente");
+		c.setEmail(scanTxt());
+		println("Informe qual serÃ¡ a forma de pagamento");
+		c.setFormapagamento(scanTxt());
 		
-		Endereco end = new Endereco();
-		System.out.println("Endereço - Digite a rua");
-		end.setRua(s.nextLine());
-		System.out.println("Endereço - Digite o bairro");
-		end.setBairro(s.nextLine());
-		System.out.println("Endereço - Digite o numero");
-		end.setNumero(s.nextInt());
-		System.out.println("Endereço - Digite o complemento");
-		end.setComplemento(s.next());
-		System.out.println("Endereço - Digite o cep");
-		end.setCep(s.nextLine());
+		Endereco endereco = new Endereco();
+		println("Endereco - Digite a rua");
+		endereco.setRua(scanTxt());
+		println("Endereco - Digite o bairro");
+		endereco.setBairro(scanTxt());
+		println("Endereco - Digite o numero");
+		endereco.setNumero(scanInt());
+		println("Endereco - Digite o complemento");
+		endereco.setComplemento(scanTxt());
+		println("Endereco - Digite o cep");
+		endereco.setCep(scanTxt());
 		
-		c.setEndereco(end);
+		c.setEndereco(endereco);
 		
 		try {
+			Fachada.getInstancia().implementarDesconto(c);
 			Fachada.getInstancia().atualizarCliente(c);
-			System.out.println("Cliente atualizado com Sucesso");
+			println("Cliente atualizado com Sucesso");
 		}catch(ClienteExcecao e) {
-			System.out.println(e.getMessage());
+			println(e.getMessage());
 		}
 		
 	}
 
-	private void pesquisarClienteEndereco() {	
-		
-	}
-
+	
 	private void removerCliente() {
-		System.out.println("informe o cpf");
-		String cpf = s.nextLine();
+		println("Informe o cpf");
+		String cpf = scanTxt();
 		
 		try {
 			  Fachada.getInstancia().removerCliente(cpf);
-			System.out.println("Cliente Removido com Sucesso");
+			println("Cliente removido com sucesso");
 		}catch(ClienteExcecao e) {
-			System.out.println(e.getMessage());
+			println(e.getMessage());
 		}
-		
 	}
 
 	private void procurarCliente() {
-		System.out.println("informe o cpf");
-		String cpf = s.nextLine();
+		println("Informe o cpf");
+		String cpf = scanTxt();
 		
 		try {
 			Cliente c = Fachada.getInstancia().procurarCliente(cpf);
 			if(c!=null) {
-				System.out.println(c.toString());
+				println(c.toString());
 			}else {
-				System.out.println("Cliente não encontrado");
+				println("Cliente nao encontrado");
 			}
 		}catch(ClienteExcecao e) {
-			System.out.println(e.getMessage());
+			println(e.getMessage());
 		}
 		
 		
@@ -109,39 +106,39 @@ public class UICliente {
 
 	private void cadastrarCliente() {
 		Cliente c = new Cliente();
-		System.out.println("informe o nome do cliente");
-		c.setNome(s.nextLine());
-		System.out.println("informe o sexo do cliente");
-		c.setSexo(s.nextLine());
-		System.out.println("informe o CPF do cliente");
-		c.setCpf(s.nextLine());
-		System.out.println("informe o email do cliente");
-		c.setEmail(s.nextLine());
+		println("Informe o nome do cliente");
+		c.setNome(scanTxt());
+		println("Informe o sexo do cliente");
+		c.setSexo(scanTxt());
+		println("Informe o CPF do cliente");
+		c.setCpf(scanTxt());
+		println("Informe o email do cliente");
+		c.setEmail(scanTxt());
+		println("Informe qual serÃ¡ a forma de pagamento");
+		c.setFormapagamento(scanTxt());
 		
-		Endereco end = new Endereco();
-		System.out.println("Endereço - Digite a rua");
-		end.setRua(s.nextLine());
-		System.out.println("Endereço - Digite o bairro");
-		end.setBairro(s.nextLine());
-		System.out.println("Endereço - Digite o numero");
-		end.setNumero(s.nextInt());
-		System.out.println("Endereço - Digite o complemento");
-		end.setComplemento(s.next());
-		System.out.println("Endereço - Digite o cep");
-		end.setCep(s.nextLine());
+		Endereco endereco = new Endereco();
+		println("Endereco - Digite a rua");
+		endereco.setRua(scanTxt());
+		println("Endereco - Digite o bairro");
+		endereco.setBairro(scanTxt());
+		println("Endereco - Digite o numero");
+		endereco.setNumero(scanInt());
+		println("Endereco - Digite o complemento");
+		endereco.setComplemento(scanTxt());
+		println("Endereco - Digite o cep");
+		endereco.setCep(scanTxt());
 		
-		c.setEndereco(end);
+		c.setEndereco(endereco);
 		
 		try {
+			Fachada.getInstancia().implementarDesconto(c);
 			Fachada.getInstancia().cadastrarCliente(c);
-			System.out.println("Cliente cadastrado com sucesso");
+			println("Cliente cadastrado com sucesso");
 		}
 			catch(ClienteExcecao e) {
-				System.out.println(e.getMessage());
+				println(e.getMessage());
 			}
 		}
-		
-		
 	
-
 }

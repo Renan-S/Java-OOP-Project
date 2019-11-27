@@ -1,30 +1,50 @@
 package ui;
 
-import java.util.Scanner;
-public class Principal {
+import util.Constante;
+
+public class Principal extends UI {
 	
 	public static void main(String[] args) {
-		
-		int opcao=0;
-		
-		Scanner s = new Scanner(System.in);
-		
+		new Principal().menu();
+	}
+
+	@Override
+	public void menu() {
+		int opcao = 0;
 		do {
-			System.out.println("escolha uma das opcões\n1 MenuCliente...."); //continuar
-			opcao = s.nextInt();
-					switch(opcao) {
-					case 1:
-						UICliente uiCliente = new UICliente();
-						uiCliente.showMenuCliente();
-						break;
-					case 0:
-						System.out.println("Obrigado por utilizar o Sistema");
-					default:
-						System.out.println("Opção invalidade");
-						break;
-					}
-		}while(opcao!=0);
-		s.close();
+			println(Constante.NOME_PROGRAMA + "|" +Constante.VERSAO+"\nEscolha um dos cadastros \n1 * Clientes \n2 * Funcionarios \n3 * Fornecedores"
+					+ "\n4 * Produtos \n5 * Vendas \n6 * Compras \n0 * Sair");
+			UI ui  = null;
+			opcao = scanInt();
+			switch(opcao) {
+				case 1:
+					ui = new UICliente();
+					break;
+				case 2: 
+					ui = new FuncionarioUI();
+				case 3: 
+					ui = new FornecedorUI();
+					break;
+				case 4:
+					ui = new ProdutoUI();
+				case 5: 
+					ui = new VendaUI();
+					break;
+				case 6: 
+					ui = new CompraUI();
+					break;
+				case 0:
+					println("Obrigado por utilizar o Sistema");
+				default:
+					println("Opcao invalida");
+					break;				
+			}
+			
+			if (ui != null) {
+				ui.menu();
+			}
+		} while(opcao != 0);
+		
 	}
 	
 }

@@ -1,37 +1,28 @@
 package model;
 
-public class Funcionario {
+public class Funcionario extends Pessoa{
 	
-	private String nome;
-	private String sexo;
-	private String email;
 	private String rg;
 	private String clt;
-	private String cnpj;
 	private String funcao;
-	private Endereco endereco;
 	
+	public Funcionario() {
+		
+	}
+	
+	public Funcionario(String nome, String sexo, String email, String cpf, Endereco endereco) {
+		super(nome, sexo, email, cpf, endereco);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Funcionario [nome=").append(nome).append(", sexo=").append(sexo).append(", email=")
-				.append(email).append(", rg=").append(rg).append(", clt=").append(clt).append(", cnpj=").append(cnpj)
-				.append(", funcao=").append(funcao).append(", endereco=").append(endereco).append("]");
+		builder.append("Funcionario [rg=").append(rg).append(", clt=").append(clt).append(", funcao=").append(funcao)
+				.append("]");
 		return builder.toString();
 	}
-	
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
+
 	public String getRg() {
 		return rg;
 	}
@@ -44,24 +35,7 @@ public class Funcionario {
 	public void setClt(String clt) {
 		this.clt = clt;
 	}
-	public String getCnpj() {
-		return cnpj;
-	}
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
-	}
-	public Endereco getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-	public String getSexo() {
-		return sexo;
-	}
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
+	
 	public String getFuncao() {
 		return funcao;
 	}

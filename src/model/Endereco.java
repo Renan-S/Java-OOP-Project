@@ -8,12 +8,28 @@ public class Endereco {
 	private int numero;
 	private String complemento;
 	
-	@Override
-	public String toString() {
-		return "Endereco [rua=" + rua + ", cep=" + cep + ", bairro=" + 
-	bairro + ", cidade=" + cidade + ", numero="+ numero + "]";
+	public Endereco(String rua, String cep, String bairro, String cidade, int numero, String complemento) {
+		this.rua = rua;
+		this.cep = cep;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.numero = numero;
+		this.complemento = complemento;
+	}
+
+	public Endereco() {
+		
 	}
 	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Endereco [rua=").append(rua).append(", cep=").append(cep).append(", bairro=").append(bairro)
+				.append(", cidade=").append(cidade).append(", numero=").append(numero).append(", complemento=")
+				.append(complemento).append("]");
+		return builder.toString();
+	}
+
 	public String getRua() {
 		return rua;
 	}

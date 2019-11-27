@@ -1,46 +1,36 @@
 package model;
 
-public class Cliente {
+public class Cliente extends Pessoa {
 	
-	private String nome;
-	private String sexo;
-	private String cpf;
-	private String email;
-	private Endereco endereco;
+	private String formapagamento;
+	private int desconto;
+	
+	public Cliente(String nome, String sexo, String email, String cpf, Endereco endereco) {
+		super(nome, sexo, email, cpf, endereco);
+	}
+
+	public Cliente (){
+		
+	}
 	
 	@Override
 	public String toString() {
-		return "Cliente [nome=" + nome + ", sexo=" + sexo + ", cpf=" + cpf + ", email=" + email + ", endereco="
-				+ endereco + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Cliente [formapagamento=").append(formapagamento).append(", desconto=").append(desconto)
+				.append("]");
+		return builder.toString();
 	}
-	public String getNome() {
-		return nome;
+
+	public int getDesconto() {
+		return desconto;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setDesconto(int desconto) {
+		this.desconto = desconto;
 	}
-	public String getCpf() {
-		return cpf;
+	public String getFormapagamento() {
+		return formapagamento;
 	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public Endereco getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-	public String getSexo() {
-		return sexo;
-	}
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
+	public void setFormapagamento(String formapagamento) {
+		this.formapagamento = formapagamento;
 	}
 }
