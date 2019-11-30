@@ -18,7 +18,7 @@ public class Funcionario extends Pessoa{
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Funcionario [rg=").append(rg).append(", clt=").append(clt).append(", funcao=").append(funcao)
+		builder.append("funcionario =").append(getNome()).append("Funcionario [rg=").append(rg).append(", clt=").append(clt).append(", funcao=").append(funcao)
 				.append("]");
 		return builder.toString();
 	}

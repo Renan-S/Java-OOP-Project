@@ -35,6 +35,7 @@ public class Principal extends UI {
 					break;
 				case 0:
 					println("Obrigado por utilizar o Sistema");
+					break;
 				default:
 					println("Opcao invalida");
 					break;				

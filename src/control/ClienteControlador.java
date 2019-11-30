@@ -63,7 +63,12 @@ public class ClienteControlador implements IClienteControlador {
 		if (!repositoriocliente.existeCliente(c.getCpf())) {
 			throw new ClienteExcecao("Nao existe nenhum cliente com o cpf " + c.getCpf());
 		}
-		repositoriocliente.atualizarCliente(c);
+		
+		Cliente c2 = Fachada.getInstancia().procurarCliente(c.getCpf());
+		if(!c2.getCpf().equals(c.getCpf())) {
+			throw new ClienteExcecao("Não podemos alterar o cpf");
+		}
+		repositoriocliente.atualizarCliente(c2);
 
 	}
 

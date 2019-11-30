@@ -25,6 +25,7 @@ public class UICliente extends UI {
 			break;
 		case 4:
 			atualizarCliente();
+			break;
 		case 5:
 			continuar = false;
 			break;
@@ -37,40 +38,69 @@ public class UICliente extends UI {
 		
 
 	private void atualizarCliente() {
-		Cliente c = new Cliente();
-		println("Informe o nome do cliente");
-		c.setNome(scanTxt());
-		println("Informe o sexo do cliente");
-		c.setSexo(scanTxt());
-		println("Informe o CPF do cliente");
-		c.setCpf(scanTxt());
-		println("Informe o email do cliente");
-		c.setEmail(scanTxt());
-		println("Informe qual será a forma de pagamento");
-		c.setFormapagamento(scanTxt());
-		
-		Endereco endereco = new Endereco();
-		println("Endereco - Digite a rua");
-		endereco.setRua(scanTxt());
-		println("Endereco - Digite o bairro");
-		endereco.setBairro(scanTxt());
-		println("Endereco - Digite o numero");
-		endereco.setNumero(scanInt());
-		println("Endereco - Digite o complemento");
-		endereco.setComplemento(scanTxt());
-		println("Endereco - Digite o cep");
-		endereco.setCep(scanTxt());
-		
-		c.setEndereco(endereco);
-		
-		try {
-			Fachada.getInstancia().implementarDesconto(c);
-			Fachada.getInstancia().atualizarCliente(c);
-			println("Cliente atualizado com Sucesso");
-		}catch(ClienteExcecao e) {
-			println(e.getMessage());
+	try {
+		print("digite o cpf");
+		Cliente c2 = Fachada.getInstancia().procurarCliente(scanTxt());
+		Endereco end = c2.getEndereco();
+		print("Nome(" + c2.getNome() + "): ");
+		String nome = scanTxt();
+		if(!nome.isEmpty()) {
+			c2.setNome(nome);
 		}
-		
+		print("sexo(" + c2.getSexo() + "): ");
+		String sexo = scanTxt();
+		if(!sexo.isEmpty()) {
+			c2.setSexo(sexo);
+		}
+		print("Cpf(" + c2.getCpf() + "): ");
+		String cpf = scanTxt();
+		if(!cpf.isEmpty()) {
+			c2.setCpf(cpf);
+		}
+		print("Email(" + c2.getEmail() + "): ");
+		String email = scanTxt();
+		if(!email.isEmpty()) {
+			c2.setEmail(email);
+		}
+		print("forma de pagamento(" + c2.getFormapagamento() + "): ");
+		String formapagamento = scanTxt();
+		if(!formapagamento.isEmpty()) {
+			c2.setFormapagamento(formapagamento);
+		}
+		print("Cep(" + end.getCep() + "): ");
+		String cep = scanTxt();
+		if(!cep.isEmpty()) {
+			end.setCep(cep);
+		}
+		print("Rua(" + end.getRua() + "): ");
+		String rua = scanTxt();
+		if(!rua.isEmpty()) {
+			end.setRua(rua);
+		}
+		print("Bairro(" + end.getBairro() + "): ");
+		String bairro = scanTxt();
+		if(!bairro.isEmpty()) {
+			end.setBairro(bairro);
+		}
+		print("Complemento(" + end.getComplemento() + "): ");
+		String complemento = scanTxt();
+		if(!complemento.isEmpty()) {
+			end.setComplemento(complemento);
+		}
+		print("Numero(" + end.getNumero() + "): ");
+		int numero = scanInt();
+		if(numero != 0) {
+			end.setNumero(numero);
+		}
+		print("Cidade(" + end.getCidade() + "): ");
+		String cidade = scanTxt();
+		if(!cidade.isEmpty()) {
+			end.setCidade(cidade);
+		}
+		Fachada.getInstancia().atualizarCliente(c2);
+	}catch(ClienteExcecao e) {
+		println(e.getMessage());
+	}
 	}
 
 	
@@ -128,7 +158,8 @@ public class UICliente extends UI {
 		endereco.setComplemento(scanTxt());
 		println("Endereco - Digite o cep");
 		endereco.setCep(scanTxt());
-		
+		println("Endereco - Digitar a cidade");
+		endereco.setCidade(scanTxt());
 		c.setEndereco(endereco);
 		
 		try {

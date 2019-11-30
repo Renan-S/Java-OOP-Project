@@ -16,8 +16,9 @@ public class Cliente extends Pessoa {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Cliente [formapagamento=").append(formapagamento).append(", desconto=").append(desconto)
-				.append("]");
+		builder.append("cliente nome=").append(getNome()).append(", sexo=").append(getSexo()).append(", email=").append(getEmail()).append(", cpf=").append(getCpf()).append(", endereço=").append(getEndereco()).append("Cliente [formapagamento=").append(formapagamento).append(", desconto=").append(desconto)
+		.append("]");
+		
 		return builder.toString();
 	}
 
@@ -33,4 +34,5 @@ public class Cliente extends Pessoa {
 	public void setFormapagamento(String formapagamento) {
 		this.formapagamento = formapagamento;
 	}
+	
 }
