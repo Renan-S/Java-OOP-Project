@@ -1,46 +1,51 @@
 package ui;
 
-import java.util.Scanner;
+import util.Constante;
 
-public class Principal {
+public class Principal extends UI {
 	
 	public static void main(String[] args) {
-		
-		int opcao=0;
-		
-		Scanner s = new Scanner(System.in);
-		
+		new Principal().menu();
+	}
+
+	@Override
+	public void menu() {
+		int opcao = 0;
 		do {
-			System.out.println("Escolha um dos cadastros \n1 * Clientes \n2 * Funcionarios \n3 * Fornecedores"
-					+ "\n4 * Produtos \n5 * Vendas \n6 * Compras \n0 * Sair"); //continuar
-			opcao = s.nextInt();
-					switch(opcao) {
-					case 1:
-						UICliente uiCliente = new UICliente();
-						uiCliente.showMenuCliente();
-						break;
-					case 2: 
-						FuncionarioUI funcionarioUI = new FuncionarioUI();
-						funcionarioUI.showMenuFuncionario(); 
-					//case 3: "Fornecedores";
-					case 4:
-						ProdutoUI produtoUI = new ProdutoUI();
-						produtoUI.showMenuProduto(); 
-					case 5:
-						VendaUI vendaUI = new VendaUI();
-						vendaUI.showMenuVenda(); 
-					case 6: 
-						CompraUI compraUI = new CompraUI();
-						compraUI.showMenuCompra();
-					case 0:
-						System.out.println("Obrigado por utilizar o Sistema");
-					default:
-						System.out.println("Opcao invalida");
-						break;
-					}
-		}while(opcao != 0);
-		s.close();
-	
+			println(Constante.NOME_PROGRAMA + "|" +Constante.VERSAO+"\nEscolha um dos cadastros \n1 * Clientes \n2 * Funcionarios \n3 * Fornecedores"
+					+ "\n4 * Produtos \n5 * Vendas \n6 * Compras \n0 * Sair");
+			UI ui  = null;
+			opcao = scanInt();
+			switch(opcao) {
+				case 1:
+					ui = new UICliente();
+					break;
+				case 2: 
+					ui = new FuncionarioUI();
+				case 3: 
+					ui = new FornecedorUI();
+					break;
+				case 4:
+					ui = new ProdutoUI();
+				case 5: 
+					ui = new VendaUI();
+					break;
+				case 6: 
+					ui = new CompraUI();
+					break;
+				case 0:
+					println("Obrigado por utilizar o Sistema");
+					break;
+				default:
+					println("Opcao invalida");
+					break;				
+			}
+			
+			if (ui != null) {
+				ui.menu();
+			}
+		} while(opcao != 0);
+		
 	}
 	
 }

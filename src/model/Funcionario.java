@@ -12,13 +12,12 @@ public class Funcionario extends Pessoa{
 	
 	public Funcionario(String nome, String sexo, String email, String cpf, Endereco endereco) {
 		super(nome, sexo, email, cpf, endereco);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Funcionario [rg=").append(rg).append(", clt=").append(clt).append(", funcao=").append(funcao)
+		builder.append("funcionario =").append(getNome()).append("Funcionario [rg=").append(rg).append(", clt=").append(clt).append(", funcao=").append(funcao)
 				.append("]");
 		return builder.toString();
 	}

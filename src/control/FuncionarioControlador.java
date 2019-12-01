@@ -3,6 +3,7 @@ package control;
 import exception.FuncionarioExcecao;
 import model.Funcionario;
 import repository.IFuncionarioRepositorio;
+import util.Util;
 
 public class FuncionarioControlador implements IFuncionarioControlador {
 	private static IFuncionarioRepositorio funcionarioRepositorio;
@@ -24,6 +25,9 @@ public class FuncionarioControlador implements IFuncionarioControlador {
 		if(funcionarioRepositorio.errorFuncionario(funcionario.getRg())) {
 			throw new FuncionarioExcecao("funcionario ja existe");
 		}
+//		if (!Util.isCPF(funcionario.getCpf())) {
+//			throw new FuncionarioExcecao("CPF invalido");
+//		}
 		funcionarioRepositorio.createFuncionario(funcionario);
 	}
 

@@ -1,6 +1,6 @@
 package ui;
 
-import java.util.Scanner;
+
 
 import control.Fachada;
 import model.Cliente;
@@ -9,18 +9,14 @@ import model.Endereco;
 import model.Produto;
 import exception.CompraExcecao;
 
-public class CompraUI {
-	
-	static Scanner s = new Scanner(System.in);
+public class CompraUI extends UI {
 
-    public void showMenuCompra(){
+    public void menu(){
+    	boolean continuar = true;
+    	do {
+        println("Escolha das opções de Compra \n1 - Inserir \n2 - Remover \n3 - Pesquisar \n4 - Atualizar \n5 - Voltar ao menu principal");
 
-        int opcao;
-
-        System.out.println("Escolha das opções de Compra \n1 - Inserir \n2 - Remover \n3 - Pesquisar \n4 - Atualizar \n5 - Voltar ao menu principal");
-        opcao = s.nextInt();
-
-        switch (opcao){
+        switch (scanInt()){
             case 1:
             	createCompra();
                 break;
@@ -34,11 +30,13 @@ public class CompraUI {
             	updateCompra();
             	break;
             case 5:
+            	continuar = false;
             	break;
             default:
-            	System.out.println("Opção inválida");
+            	println("Opção inválida");
             	break;
         }
+    	}while(continuar);
     }
     
     private void createCompra(){
@@ -46,45 +44,45 @@ public class CompraUI {
         Cliente cliente = new Cliente(); 
         Produto produto = new Produto();
         Endereco endereco = new Endereco();
-        System.out.println("Crie um idenficador único para o compra");
-        compraUI.setId(s.nextInt());
+        println("Crie um idenficador único para o compra");
+        compraUI.setId(scanInt());
         
-		System.out.println("Informe o nome do cliente");
-		cliente.setNome(s.nextLine());
-		System.out.println("Informe o sexo do cliente");
-		cliente.setSexo(s.nextLine());
-		System.out.println("Informe o CPF do cliente");
-		cliente.setCpf(s.nextLine());
-		System.out.println("Informe o email do cliente");
-		cliente.setEmail(s.nextLine());
-		System.out.println("Informe qual será a forma de pagamento");
-		cliente.setFormapagamento(s.nextLine());
+		println("Informe o nome do cliente");
+		cliente.setNome(scanTxt());
+		println("Informe o sexo do cliente");
+		cliente.setSexo(scanTxt());
+		println("Informe o CPF do cliente");
+		cliente.setCpf(scanTxt());
+		println("Informe o email do cliente");
+		cliente.setEmail(scanTxt());
+		println("Informe qual será a forma de pagamento");
+		cliente.setFormapagamento(scanTxt());
 		
-		System.out.println("Por favor, insira agora os dados referentes ao Endereço");
-		System.out.println("Endereco - Digite a rua");
-		endereco.setRua(s.nextLine());
-		System.out.println("Endereco - Digite o bairro");
-		endereco.setBairro(s.nextLine());
-		System.out.println("Endereco - Digite o numero");
-		endereco.setNumero(s.nextInt());
-		System.out.println("Endereco - Digite o complemento");
-		endereco.setComplemento(s.next());
-		System.out.println("Endereco - Digite o cep");
-		endereco.setCep(s.nextLine());
+		println("Por favor, insira agora os dados referentes ao Endereço");
+		println("Endereço - Digite a rua");
+		endereco.setRua(scanTxt());
+		println("Endereço - Digite o bairro");
+		endereco.setBairro(scanTxt());
+		println("Endereço - Digite o numero");
+		endereco.setNumero(scanInt());
+		println("Endereço - Digite o complemento");
+		endereco.setComplemento(scanTxt());
+		println("Endereço - Digite o cep");
+		endereco.setCep(scanTxt());
 		
-        System.out.println("O cliente foi cadastrado, agora insira os valores para o Produto");
-        System.out.println("Insira o nome");
-        produto.setNomeProduto(s.nextLine());
-        System.out.println("Defina o tipo");
-        produto.setTipo(s.nextLine());
-        System.out.println("Insira a data de fabricação");
-        produto.setFabricacao(s.nextLine());
-        System.out.println("Digite a data de validade");
-        produto.setValidade(s.nextLine());
-        System.out.println("Defina o valor em reais");
-        produto.setValor(s.nextDouble());
-        System.out.println("Digite a quantidade");
-        produto.setQuantidade(s.nextInt());
+        println("O cliente foi cadastrado, agora insira os valores para o Produto");
+        println("Insira o nome");
+        produto.setNomeProduto(scanTxt());
+        println("Defina o tipo");
+        produto.setTipo(scanTxt());
+        println("Insira a data de fabrição");
+        produto.setFabricacao(scanTxt());
+        println("Digite a data de validade");
+        produto.setValidade(scanTxt());
+        println("Defina o valor em reais");
+        produto.setValor(scanDouble());
+        println("Digite a quantidade");
+        produto.setQuantidade(scanInt());
         
         cliente.setEndereco(endereco);
         compraUI.setCliente(cliente);
@@ -92,40 +90,40 @@ public class CompraUI {
 
         try {
             Fachada.getInstancia().createCompra(compraUI);
-            System.out.println("Compra criada");
+            println("Compra criada");
         }catch (CompraExcecao e){
         	e.printStackTrace();
-            System.out.println(e.getMessage());
+            println(e.getMessage());
         }
     }
     
     private void deleteCompra() {
-		System.out.println("Digite o identificador único da compra");
-		int id = s.nextInt();
+		println("Digite o identificador único da compra");
+		int id = scanInt();
 		
 		try {
 			Fachada.getInstancia().deleteCompra(id);
-			System.out.println("Compra removida");
+			println("Compra removida");
 		} catch (CompraExcecao e) {
 			e.printStackTrace();
-			System.out.println(e.getMessage());
+			println(e.getMessage());
 		}
 	}
     
     private void searchCompraPorId() {
-		System.out.println("Insira o identificador único");
-		int id = s.nextInt();
+		println("Insira o identificador único");
+		int id = scanInt();
 		
 		try {
 			Compra compraUI = Fachada.getInstancia().searchCompraPorId(id);
 			if (compraUI != null) {
-				System.out.println(compraUI.toString());
+				println(compraUI.toString());
 			} else {
-				System.out.println("Compra inexistente, tente novamente");
+				println("Compra inexistente, tente novamente");
 			}
 		} catch (CompraExcecao e) {
 			e.printStackTrace();
-			System.out.println(e.getMessage());
+			println(e.getMessage());
 		}
 	}
     
@@ -134,45 +132,45 @@ public class CompraUI {
         Cliente cliente = new Cliente(); 
         Produto produto = new Produto();
         Endereco endereco = new Endereco();
-        System.out.println("Crie um idenficador único para a compra");
-        compraUI.setId(s.nextInt());
+        println("Crie um idenficador único para a compra");
+        compraUI.setId(scanInt());
         
-		System.out.println("Informe o nome do cliente");
-		cliente.setNome(s.nextLine());
-		System.out.println("Informe o sexo do cliente");
-		cliente.setSexo(s.nextLine());
-		System.out.println("Informe o CPF do cliente");
-		cliente.setCpf(s.nextLine());
-		System.out.println("Informe o email do cliente");
-		cliente.setEmail(s.nextLine());
-		System.out.println("Informe qual será a forma de pagamento");
-		cliente.setFormapagamento(s.nextLine());
+		println("Informe o nome do cliente");
+		cliente.setNome(scanTxt());
+		println("Informe o sexo do cliente");
+		cliente.setSexo(scanTxt());
+		println("Informe o CPF do cliente");
+		cliente.setCpf(scanTxt());
+		println("Informe o email do cliente");
+		cliente.setEmail(scanTxt());
+		println("Informe qual será a forma de pagamento");
+		cliente.setFormapagamento(scanTxt());
 		
-		System.out.println("Por favor, insira agora os dados referentes ao Endereço");
-		System.out.println("Endereco - Digite a rua");
-		endereco.setRua(s.nextLine());
-		System.out.println("Endereco - Digite o bairro");
-		endereco.setBairro(s.nextLine());
-		System.out.println("Endereco - Digite o numero");
-		endereco.setNumero(s.nextInt());
-		System.out.println("Endereco - Digite o complemento");
-		endereco.setComplemento(s.next());
-		System.out.println("Endereco - Digite o cep");
-		endereco.setCep(s.nextLine());
+		println("Por favor, insira agora os dados referentes ao Endereço");
+		println("Endereço - Digite a rua");
+		endereco.setRua(scanTxt());
+		println("Endereço - Digite o bairro");
+		endereco.setBairro(scanTxt());
+		println("Endereço - Digite o numero");
+		endereco.setNumero(scanInt());
+		println("Endereço - Digite o complemento");
+		endereco.setComplemento(scanTxt());
+		println("Endereço - Digite o cep");
+		endereco.setCep(scanTxt());
 		
-        System.out.println("O cliente foi cadastrado, agora insira os valores para o Produto");
-        System.out.println("Insira o nome");
-        produto.setNomeProduto(s.nextLine());
-        System.out.println("Defina o tipo");
-        produto.setTipo(s.nextLine());
-        System.out.println("Insira a data de fabricação");
-        produto.setFabricacao(s.nextLine());
-        System.out.println("Digite a data de validade");
-        produto.setValidade(s.nextLine());
-        System.out.println("Defina o valor em reais");
-        produto.setValor(s.nextDouble());
-        System.out.println("Digite a quantidade");
-        produto.setQuantidade(s.nextInt());
+        println("Insira os valores para o Produto");
+        println("Insira o nome");
+        produto.setNomeProduto(scanTxt());
+        println("Defina o tipo");
+        produto.setTipo(scanTxt());
+        println("Insira a data de fabricação");
+        produto.setFabricacao(scanTxt());
+        println("Digite a data de validade");
+        produto.setValidade(scanTxt());
+        println("Defina o valor em reais");
+        produto.setValor(scanDouble());
+        println("Digite a quantidade");
+        produto.setQuantidade(scanInt());
         
         cliente.setEndereco(endereco);
         compraUI.setCliente(cliente);
@@ -180,10 +178,10 @@ public class CompraUI {
 
          try {
              Fachada.getInstancia().updateCompra(compraUI);
-             System.out.println("Compra modificada e atualizada");
+             println("Compra modificada e atualizada");
          }catch (CompraExcecao e){
          	e.printStackTrace();
-             System.out.println(e.getMessage());
+             println(e.getMessage());
          }
 	}
 

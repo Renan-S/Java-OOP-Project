@@ -26,7 +26,7 @@ public class CompraRepositorio implements ICompraRepositorio {
 	@Override
 	public Compra searchCompraPorId(int id) throws CompraExcecao {
 		for (Compra compra : listaCompra) {
-			if (compra != null && compra.getId() == (id)) {
+			if (compra != null && compra.getId() == id) {
 				return compra;
 			}
 			
@@ -40,6 +40,7 @@ public class CompraRepositorio implements ICompraRepositorio {
 		for (Compra compra : listaCompra) {
 			if (compraUI.getId() == compra.getId()) {
 				compra = compraUI;
+				return;
 			}
 		}
 	}
@@ -49,6 +50,7 @@ public class CompraRepositorio implements ICompraRepositorio {
 		for (Compra compra : listaCompra){
             if (compra !=null && compra.getId() == id){
                 listaCompra.remove(compra);
+                return;
             }
         }
 	}

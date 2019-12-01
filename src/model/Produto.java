@@ -1,11 +1,9 @@
 package model;
 
-public class Produto {
+public class Produto extends Item {
 	private int id; //identificador único;
 	private String nomeproduto;
 	private String tipo;
-	private String fabricacao;
-	private String validade;
 	private double valor;
 	private int quantidade;
 
@@ -17,7 +15,7 @@ public class Produto {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Produto [codigo=").append(id).append(", nomeproduto=").append(nomeproduto).append(", tipo=").append(tipo)
-				.append(", fabricacao=").append(fabricacao).append(", validade=").append(validade).append(", valor=")
+				.append(", fabricacao=").append(this.getFabricacao()).append(", validade=").append(this.getValidade()).append(", valor=")
 				.append(valor).append(", quantidade=").append(quantidade).append("]");
 		return builder.toString();
 	}
@@ -34,18 +32,6 @@ public class Produto {
 	}
 	public void setNomeProduto(String nomeproduto) {
 		this.nomeproduto = nomeproduto;
-	}
-	public String getFabricacao() {
-		return fabricacao;
-	}
-	public void setFabricacao(String fabricacao) {
-		this.fabricacao = fabricacao;
-	}
-	public String getValidade() {
-		return validade;
-	}
-	public void setValidade(String validade) {
-		this.validade = validade;
 	}
 	public double getValor() {
 		return valor;

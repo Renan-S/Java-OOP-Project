@@ -30,7 +30,7 @@ public class VendaControlador  implements IVendaControlador {
 	@Override
 	public Venda searchVendaPorId(int id) throws VendaExcecao {
 		if (id <= 0) {
-    		throw new VendaExcecao("Id invÃ¡lido");
+    		throw new VendaExcecao("Id inválido");
     	}
         return vendaRepositorio.searchVendaPorId(id);
     }
@@ -38,11 +38,11 @@ public class VendaControlador  implements IVendaControlador {
 	@Override
 	public void deleteVenda(int id) throws VendaExcecao {
 		if (id <= 0) {
-    		throw new VendaExcecao("Venda invÃ¡lida");
+    		throw new VendaExcecao("Venda inválida");
     	}
     	
     	if (!vendaRepositorio.errorVenda(id)) {
-    		throw new VendaExcecao("NÃ£o existe nenhum venda com o cÃ³digo " + id);
+    		throw new VendaExcecao("Não existe nenhum venda com o código " + id);
     	}
     	
     	vendaRepositorio.deleteVenda(id);
@@ -52,7 +52,7 @@ public class VendaControlador  implements IVendaControlador {
 	@Override
 	public void updateVenda(Venda venda) throws VendaExcecao {
 		if (venda == null) {
-    		throw new VendaExcecao("Venda invÃ¡lida");
+    		throw new VendaExcecao("Venda inválida");
     	}
 
         if (!vendaRepositorio.errorVenda(venda.getId())){

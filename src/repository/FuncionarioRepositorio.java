@@ -42,6 +42,7 @@ public class FuncionarioRepositorio implements IFuncionarioRepositorio {
 		for (Funcionario funcionario : listaFuncionario) {
 			if (funcionarioUI.getRg().equals(funcionario.getRg())) {
 				funcionario = funcionarioUI;
+				return;
 			}
 		}
 	}
@@ -51,6 +52,7 @@ public class FuncionarioRepositorio implements IFuncionarioRepositorio {
 		for (Funcionario funcionario : listaFuncionario){
             if (funcionario !=null && funcionario.getRg().equals(rg)){
             	listaFuncionario.remove(funcionario);
+            	return;
             }
         }
 	}

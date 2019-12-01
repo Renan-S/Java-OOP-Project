@@ -40,6 +40,7 @@ public class ProdutoRepositorio implements IProdutoRepositorio {
 		for (Produto produto : listaProduto) {
 			if (produtoUI.getId() == produto.getId()) {
 				produto = produtoUI;
+				return;
 			}
 		}
 	}
@@ -49,6 +50,7 @@ public class ProdutoRepositorio implements IProdutoRepositorio {
 		for (Produto produto : listaProduto){
             if (produto !=null && produto.getId() == id){
                 listaProduto.remove(produto);
+                return;
             }
         }
 	}

@@ -1,3 +1,4 @@
+  
 package repository;
 
 import java.util.ArrayList;
@@ -34,12 +35,13 @@ public class VendaRepositorio implements IVendaRepositorio {
 		return null;
 	}
 
-	//vendaUi aqui é um objeto que vem da UI, e foi assim definido para não ficar duplicado com o objeto do repositório
+	//vendaUi aqui � um objeto que vem da UI, e foi assim definido para n�o ficar duplicado com o objeto do reposit�rio
 	@Override
 	public void updateVenda(Venda vendaUI) throws VendaExcecao {
 		for (Venda venda : listaVenda) {
 			if (vendaUI.getId() == venda.getId()) {
 				venda = vendaUI;
+				return;
 			}
 		}
 	}
@@ -49,6 +51,7 @@ public class VendaRepositorio implements IVendaRepositorio {
 		for (Venda venda : listaVenda){
             if (venda !=null && venda.getId() == id){
                 listaVenda.remove(venda);
+                return;
             }
         }
 	}
