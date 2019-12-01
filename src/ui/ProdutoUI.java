@@ -109,12 +109,12 @@ public class ProdutoUI extends UI {
 			}
 			print("Valor(" + produtoUI.getValor() + "): ");
 			double valor = scanDouble();
-			if(valor <= 0) {
+			if(valor > 0) {
 				produtoUI.setValor(valor);
 			}
 			print("Quantidade(" + produtoUI.getQuantidade() + "): ");
 			int quantidade = scanInt();
-			if(quantidade <= 0) {
+			if(quantidade > 0) {
 				produtoUI.setQuantidade(quantidade);
 			}
 

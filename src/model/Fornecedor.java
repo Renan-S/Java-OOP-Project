@@ -19,11 +19,13 @@ public class Fornecedor extends Pessoa {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Fornecedor (responsavel=").append(responsavel).append(", cnpj=").append(cnpj)
-				.append(", produto=").append(produto).append(")");
+		builder.append("Fornecedor [responsavel=").append(responsavel).append(", cnpj=").append(cnpj)
+				.append(", produto=").append(produto).append(", getNome()=").append(getNome()).append(", getSexo()=")
+				.append(getSexo()).append(", getEmail()=").append(getEmail()).append(", getCpf()=").append(getCpf())
+				.append(", getEndereco()=").append(getEndereco()).append("]");
 		return builder.toString();
 	}
-	
+
 	public String getResponsavel() {
 		return responsavel;
 	}

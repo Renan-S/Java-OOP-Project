@@ -1,7 +1,6 @@
 package ui;
 
-import control.FornecedorControlador;
-import control.IFornecedorControlador;
+import control.Fachada;
 import exception.FornecedorExcecao;
 import model.Endereco;
 import model.Fornecedor;
@@ -9,8 +8,7 @@ import model.Produto;
 
 public class FornecedorUI extends UI {
 
-	private static IFornecedorControlador controler = FornecedorControlador.getInstancia();
-
+	
 	private static void adicionar() {
 		Fornecedor f = new Fornecedor();
 		Endereco end = new Endereco();
@@ -55,7 +53,7 @@ public class FornecedorUI extends UI {
 		f.setEndereco(end);
 
 		try {
-			controler.adicionar(f);
+			Fachada.getInstancia().adicionar(f);
 			println("Fornecedor adicionado com sucesso");
 		} catch (FornecedorExcecao e) {
 			println(e.getMessage());
@@ -66,7 +64,7 @@ public class FornecedorUI extends UI {
 	private static void procurar() {
 		try {
 			print("Digite o CNPJ: ");
-			println(controler.procurar(scanTxt()).toString());
+			println(Fachada.getInstancia().procurar(scanTxt()).toString());
 		} catch (FornecedorExcecao e) {
 			println(e.getMessage());
 		}
@@ -76,7 +74,7 @@ public class FornecedorUI extends UI {
 	private static void remover() {
 		try {
 			print("Digite o CNPJ: ");
-			controler.remover(scanTxt());
+			Fachada.getInstancia().remover(scanTxt());
 			println("Fonecedor removido com sucesso");
 		} catch (FornecedorExcecao e) {
 			println(e.getMessage());
@@ -87,8 +85,9 @@ public class FornecedorUI extends UI {
 	private static void atualizar() {
 		try {
 			print("Digite o CNPJ: ");
-			Fornecedor f = controler.procurar(scanTxt());
+			Fornecedor f = Fachada.getInstancia().procurar(scanTxt());
 			Endereco end = f.getEndereco();
+			Produto produto = f.getProduto();
 
 			print("Nome(" + f.getNome() + "): ");
 			String nome = scanTxt();
@@ -127,7 +126,7 @@ public class FornecedorUI extends UI {
 			}
 			print("Numero(" + end.getNumero() + "): ");
 			int numero = scanInt();
-			if (numero != 0) {
+			if (numero > 0) {
 				end.setNumero(numero);
 			}
 			print("Cidade(" + end.getCidade() + "): ");
@@ -135,7 +134,29 @@ public class FornecedorUI extends UI {
 			if (!cidade.isEmpty()) {
 				end.setCidade(cidade);
 			}
-			controler.atualizar(f);
+			print("Nome do Produto(" + produto.getNomeproduto() + "): ");
+			String nomeProduto = scanTxt();
+			if (!nomeProduto.isEmpty()) {
+				produto.setNomeProduto(nomeProduto);
+			}
+			print("Tipo(" + produto.getTipo() + "):");
+			String tipo = scanTxt();
+			if (!tipo.isEmpty()) {
+				produto.setTipo(tipo);
+			}
+			print("Valor(" + produto.getValor() + "):");
+			double valor = scanDouble();
+			if (valor > 0) {
+				produto.setValor(valor);
+			}
+			print("Quantidade(" + produto.getQuantidade() + "):");
+			int quantidade = scanInt();
+			if (quantidade > 0) {
+				produto.setQuantidade(quantidade);
+			}
+		
+			Fachada.getInstancia().atualizar(f);
+			println("Fornecedor Atualizado");
 		} catch (FornecedorExcecao e) {
 			println(e.getMessage());
 		}

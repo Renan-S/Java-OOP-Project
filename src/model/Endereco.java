@@ -20,15 +20,6 @@ public class Endereco {
 	public Endereco() {
 		
 	}
-	
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Endereco [rua=").append(rua).append(", cep=").append(cep).append(", bairro=").append(bairro)
-				.append(", cidade=").append(cidade).append(", numero=").append(numero).append(", complemento=")
-				.append(complemento).append("]");
-		return builder.toString();
-	}
 
 	public String getRua() {
 		return rua;

@@ -18,12 +18,13 @@ public class Produto extends Item {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Produto [idproduto=").append(idproduto).append(", nomeproduto=").append(nomeproduto).append(", tipo=").append(tipo)
-				.append(", fabricacao=").append(this.getFabricacao()).append(", validade=").append(this.getValidade()).append(", valor=")
-				.append(valor).append(", quantidade=").append(quantidade).append("]");
+		builder.append("Produto [idproduto=").append(idproduto).append(", nomeproduto=").append(nomeproduto)
+				.append(", tipo=").append(tipo).append(", valor=").append(valor).append(", quantidade=")
+				.append(quantidade).append(", getFabricacao()=").append(getFabricacao()).append(", getValidade()=")
+				.append(getValidade()).append("]");
 		return builder.toString();
 	}
-	
+
 	public int getIdProduto() {
 		return idproduto;
 	}

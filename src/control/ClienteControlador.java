@@ -4,7 +4,6 @@ import exception.ClienteExcecao;
 import model.Cliente;
 import repository.ClienteRepositorio;
 import repository.IClienteRepositorio;
-import util.Util;
 
 public class ClienteControlador implements IClienteControlador {
 	private static IClienteRepositorio repositoriocliente;

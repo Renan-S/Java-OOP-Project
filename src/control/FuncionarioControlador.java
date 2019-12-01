@@ -4,7 +4,6 @@ import exception.FuncionarioExcecao;
 import model.Funcionario;
 import repository.FuncionarioRepositorio;
 import repository.IFuncionarioRepositorio;
-import util.Util;
 
 public class FuncionarioControlador implements IFuncionarioControlador {
 	private static IFuncionarioRepositorio funcionarioRepositorio;

@@ -195,7 +195,7 @@ public class VendaUI extends UI {
 			}
 			print("Numero(" + endereco.getNumero() + "): ");
 			int numero = scanInt();
-			if(numero <= 0) {
+			if(numero > 0) {
 				endereco.setNumero(numero);
 			}
 			print("Cidade(" + endereco.getCidade() + "): ");
@@ -218,12 +218,12 @@ public class VendaUI extends UI {
 			}
 			print("Valor(" + produto.getValor() + "): ");
 			double valor = scanDouble();
-			if(valor <= 0) {
+			if(valor > 0) {
 				produto.setValor(valor);
 			}
 			print("Quantidade(" + produto.getQuantidade() + "): ");
 			int quantidade = scanInt();
-			if(quantidade <= 0) {
+			if(quantidade > 0) {
 				produto.setQuantidade(quantidade);
 			}
 
@@ -232,8 +232,6 @@ public class VendaUI extends UI {
 			println("Sua venda ficou desse modo: ");
 			print(vendaUI.toString());
 
-			Fachada.getInstancia().updateVenda(vendaUI);
-			println("Venda modificada e atualizada");
 		}catch (VendaExcecao e){
 			e.printStackTrace();
 			println(e.getMessage());

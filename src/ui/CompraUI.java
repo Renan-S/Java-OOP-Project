@@ -186,7 +186,7 @@ public class CompraUI extends UI {
 			}
 			print("Numero(" + endereco.getNumero() + "): ");
 			int numero = scanInt();
-			if(numero <= 0) {
+			if(numero > 0) {
 				endereco.setNumero(numero);
 			}
 			print("Cidade(" + endereco.getCidade() + "): ");
@@ -209,12 +209,12 @@ public class CompraUI extends UI {
 			}
 			print("Valor(" + produto.getValor() + "): ");
 			double valor = scanDouble();
-			if(valor <= 0) {
+			if(valor > 0) {
 				produto.setValor(valor);
 			}
 			print("Quantidade(" + produto.getQuantidade() + "): ");
 			int quantidade = scanInt();
-			if(quantidade <= 0) {
+			if(quantidade > 0) {
 				produto.setQuantidade(quantidade);
 			}
 

@@ -21,13 +21,6 @@ public abstract class Pessoa{
 		
 	}
 	
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Pessoa [nome=").append(nome).append(", sexo=").append(sexo).append(", email=").append(email)
-				.append(", cpf=").append(cpf).append("]");
-		return builder.toString();
-	}
 
 	public String getNome() {
 		return nome;

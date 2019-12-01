@@ -4,9 +4,9 @@ import util.Constante;
 
 public abstract class Impostos {
 	
-	private double icms = Constante.icms;
-	private double iss = Constante.iss;
-	private double ipi = Constante.ipi;
+	private double icms = Constante.ICMS;
+	private double iss = Constante.ISS;
+	private double ipi = Constante.IPI;
 	
 	public Impostos() {
 		

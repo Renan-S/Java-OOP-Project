@@ -163,7 +163,7 @@ public class FuncionarioUI extends UI{
 			}
 			print("Numero(" + endereco.getNumero() + "): ");
 			int numero = scanInt();
-			if(numero <= 0) {
+			if(numero > 0) {
 				endereco.setNumero(numero);
 			}
 			print("Cidade(" + endereco.getCidade() + "): ");
