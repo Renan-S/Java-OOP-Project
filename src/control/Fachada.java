@@ -22,7 +22,7 @@ ICompraControlador, IVendaControlador {
 	private ICompraControlador controladorCompra;
 	private IVendaControlador controladorVenda;
 	private static Fachada instancia;
-	
+
 	public static Fachada getInstancia() {
 		if(instancia == null) {
 			instancia = new Fachada();
@@ -38,7 +38,7 @@ ICompraControlador, IVendaControlador {
 		controladorVenda = VendaControlador.getInstancia();
 	}
 
-//FACHADA CLIENTE
+	//FACHADA CLIENTE
 	@Override
 	public void cadastrarCliente(Cliente c) throws ClienteExcecao {
 		controladorCliente.cadastrarCliente(c);
@@ -52,19 +52,19 @@ ICompraControlador, IVendaControlador {
 	@Override
 	public void removerCliente(String cpf) throws ClienteExcecao {
 		controladorCliente.removerCliente(cpf);
-		
+
 	}
 
 	@Override
 	public void atualizarCliente(Cliente c) throws ClienteExcecao {
 		controladorCliente.atualizarCliente(c);
-		
+
 	}
 	@Override
 	public void implementarDesconto(Cliente c) throws ClienteExcecao {
 		controladorCliente.implementarDesconto(c);
 	}
-	
+
 	//FACHADA FUNCIONARIO
 	@Override
 	public void createFuncionario(Funcionario funcionario) throws FuncionarioExcecao {
@@ -79,33 +79,33 @@ ICompraControlador, IVendaControlador {
 	@Override
 	public void deleteFuncionario(String rg) throws FuncionarioExcecao {
 		controladorFuncionario.deleteFuncionario(rg);
-		
+
 	}
 
 	@Override
 	public void updateFuncionario(Funcionario funcionario) throws FuncionarioExcecao {
 		controladorFuncionario.updateFuncionario(funcionario);
-		
+
 	}
-	
+
 	//FACHADA PRODUTO
 	@Override
 	public void createProduto(Produto produto) throws ProdutoExcecao {
 		controladorProduto.createProduto(produto);
 	}
 	@Override
-	public Produto searchProdutoPorId(int id) throws ProdutoExcecao {
-		return controladorProduto.searchProdutoPorId(id);
+	public Produto searchProdutoPorId(int idproduto) throws ProdutoExcecao {
+		return controladorProduto.searchProdutoPorId(idproduto);
 	}
 	@Override
-	public void deleteProduto(int id) throws ProdutoExcecao {
-		controladorProduto.deleteProduto(id);
+	public void deleteProduto(int idproduto) throws ProdutoExcecao {
+		controladorProduto.deleteProduto(idproduto);
 	}
 	@Override
 	public void updateProduto(Produto produto) throws ProdutoExcecao {
 		controladorProduto.updateProduto(produto);
 	}
-	
+
 	//FACHADA FORNECEDOR
 	@Override
 	public void adicionar(Fornecedor fornecedor) throws FornecedorExcecao {
@@ -123,41 +123,41 @@ ICompraControlador, IVendaControlador {
 	public void atualizar(Fornecedor fornecedor) throws FornecedorExcecao{
 		controladorFornecedor.atualizar(fornecedor);
 	}
-	
+
 	//FACHADA VENDA
-		@Override
-		public void createVenda(Venda venda) throws VendaExcecao {
-			controladorVenda.createVenda(venda);
-		}
-		@Override
-		public Venda searchVendaPorId(int id) throws VendaExcecao {
-			return controladorVenda.searchVendaPorId(id);
-		}
-		@Override
-		public void deleteVenda(int id) throws VendaExcecao {
-			controladorVenda.deleteVenda(id);
-		}
-		@Override
-		public void updateVenda(Venda venda) throws VendaExcecao {
-			controladorVenda.updateVenda(venda);
-		}
-		
-		
-		//FACHADA COMPRA
-		@Override
-		public void createCompra(Compra compra) throws CompraExcecao {
-			
-		}
-		@Override
-		public Compra searchCompraPorId(int id) throws CompraExcecao {
-			return controladorCompra.searchCompraPorId(id);
-		}
-		@Override
-		public void deleteCompra(int id) throws CompraExcecao {
-			controladorCompra.deleteCompra(id);
-		}
-		@Override
-		public void updateCompra(Compra compra) throws CompraExcecao {
-			controladorCompra.updateCompra(compra);
-		}
+	@Override
+	public void createVenda(Venda venda) throws VendaExcecao {
+		controladorVenda.createVenda(venda);
+	}
+	@Override
+	public Venda searchVendaPorId(int id) throws VendaExcecao {
+		return controladorVenda.searchVendaPorId(id);
+	}
+	@Override
+	public void deleteVenda(int id) throws VendaExcecao {
+		controladorVenda.deleteVenda(id);
+	}
+	@Override
+	public void updateVenda(Venda venda) throws VendaExcecao {
+		controladorVenda.updateVenda(venda);
+	}
+
+
+	//FACHADA COMPRA
+	@Override
+	public void createCompra(Compra compra) throws CompraExcecao {
+		controladorCompra.createCompra(compra);
+	}
+	@Override
+	public Compra searchCompraPorId(int id) throws CompraExcecao {
+		return controladorCompra.searchCompraPorId(id);
+	}
+	@Override
+	public void deleteCompra(int id) throws CompraExcecao {
+		controladorCompra.deleteCompra(id);
+	}
+	@Override
+	public void updateCompra(Compra compra) throws CompraExcecao {
+		controladorCompra.updateCompra(compra);
+	}
 }

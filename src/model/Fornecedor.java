@@ -20,8 +20,8 @@ public class Fornecedor extends Pessoa {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Fornecedor [responsavel=").append(responsavel).append(", cnpj=").append(cnpj)
-				.append(", produto=").append(produto).append("]");
+		builder.append("Fornecedor (responsavel=").append(responsavel).append(", cnpj=").append(cnpj)
+				.append(", produto=").append(produto).append(")");
 		return builder.toString();
 	}
 	

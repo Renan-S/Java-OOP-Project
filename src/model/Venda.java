@@ -9,7 +9,15 @@ public class Venda {
 	public Venda() {
 		
 	}
-	
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Venda [id=").append(id).append(", produto=").append(produto).append(", fornecedor=")
+				.append(fornecedor).append("]");
+		return builder.toString();
+	}
+
 	public int getId() {
 		return id;
 	}

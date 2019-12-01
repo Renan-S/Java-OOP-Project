@@ -24,9 +24,9 @@ public class ProdutoRepositorio implements IProdutoRepositorio {
 	}
 
 	@Override
-	public Produto searchProdutoPorId(int id) throws ProdutoExcecao {
+	public Produto searchProdutoPorId(int idproduto) throws ProdutoExcecao {
 		for (Produto produto : listaProduto) {
-			if (produto != null && produto.getId() == (id)) {
+			if (produto != null && produto.getIdProduto() == idproduto) {
 				return produto;
 			}
 			
@@ -38,7 +38,7 @@ public class ProdutoRepositorio implements IProdutoRepositorio {
 	@Override
 	public void updateProduto(Produto produtoUI) throws ProdutoExcecao {
 		for (Produto produto : listaProduto) {
-			if (produtoUI.getId() == produto.getId()) {
+			if (produtoUI.getIdProduto() == produto.getIdProduto()) {
 				produto = produtoUI;
 				return;
 			}
@@ -46,9 +46,9 @@ public class ProdutoRepositorio implements IProdutoRepositorio {
 	}
 	
 	@Override
-	public void deleteProduto(int id) throws ProdutoExcecao {
+	public void deleteProduto(int idproduto) throws ProdutoExcecao {
 		for (Produto produto : listaProduto){
-            if (produto !=null && produto.getId() == id){
+            if (produto !=null && produto.getIdProduto() == idproduto){
                 listaProduto.remove(produto);
                 return;
             }
@@ -56,15 +56,13 @@ public class ProdutoRepositorio implements IProdutoRepositorio {
 	}
 	
 	@Override
-    public boolean errorProduto(int id) throws ProdutoExcecao  {
+    public boolean errorProduto(int idproduto) throws ProdutoExcecao  {
         for (Produto produto: listaProduto){
-            if (produto != null && produto.getId() == id){
+            if (produto != null && produto.getIdProduto() == idproduto){
                 return true;
             }
         }
         return false;
     }
 	
-	
-
 }

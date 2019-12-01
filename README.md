@@ -1,6 +1,6 @@
 # About this project
 
-This project was made by four people and have the following pre requisites: 
+This project was made by three people and have the following pre requisites: 
 1 - Be made in one month and be shown to our classmates; 
 2 - Could be anything within the set of parameters; 
 3 - Must be done and presented in layer programming design; 

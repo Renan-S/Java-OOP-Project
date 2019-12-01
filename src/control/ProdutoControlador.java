@@ -3,6 +3,7 @@ package control;
 import exception.ProdutoExcecao;
 import model.Produto;
 import repository.IProdutoRepositorio;
+import repository.ProdutoRepositorio;
 
 public class ProdutoControlador implements IProdutoControlador {
 	private static IProdutoRepositorio produtoRepositorio;
@@ -13,7 +14,7 @@ public class ProdutoControlador implements IProdutoControlador {
 	}
 	
 	private ProdutoControlador() {
-		
+		produtoRepositorio = ProdutoRepositorio.getInstancia();
 	}
 	
 	@Override
@@ -21,31 +22,31 @@ public class ProdutoControlador implements IProdutoControlador {
 		if( produto == null) {
 			throw new ProdutoExcecao("Produto invalido");
 		}
-		if(produtoRepositorio.errorProduto(produto.getId())) {
+		if(produtoRepositorio.errorProduto(produto.getIdProduto())) {
 			throw new ProdutoExcecao("Produto ja existe");
 		}
 		produtoRepositorio.createProduto(produto);		
 	}
 
 	@Override
-	public Produto searchProdutoPorId(int id) throws ProdutoExcecao {
-		if (id <= 0) {
+	public Produto searchProdutoPorId(int idproduto) throws ProdutoExcecao {
+		if (idproduto <= 0) {
     		throw new ProdutoExcecao("Id inválido");
     	}
-        return produtoRepositorio.searchProdutoPorId(id);
+        return produtoRepositorio.searchProdutoPorId(idproduto);
     }
 
 	@Override
-	public void deleteProduto(int id) throws ProdutoExcecao {
-		if (id <= 0) {
+	public void deleteProduto(int idproduto) throws ProdutoExcecao {
+		if (idproduto <= 0) {
     		throw new ProdutoExcecao("Produto inválida");
     	}
     	
-    	if (!produtoRepositorio.errorProduto(id)) {
-    		throw new ProdutoExcecao("Não existe nenhum produto com o código " + id);
+    	if (!produtoRepositorio.errorProduto(idproduto)) {
+    		throw new ProdutoExcecao("Não existe nenhum produto com o código " + idproduto);
     	}
     	
-    	produtoRepositorio.deleteProduto(id);
+    	produtoRepositorio.deleteProduto(idproduto);
 
     }
 
@@ -55,8 +56,8 @@ public class ProdutoControlador implements IProdutoControlador {
     		throw new ProdutoExcecao("Produto inválido");
     	}
 
-        if (!produtoRepositorio.errorProduto(produto.getId())){
-            throw new ProdutoExcecao("Nenhum produto com o Id " + produto.getId());
+        if (!produtoRepositorio.errorProduto(produto.getIdProduto())){
+            throw new ProdutoExcecao("Nenhum produto com o Id " + produto.getIdProduto());
         }
         
         produtoRepositorio.updateProduto(produto);

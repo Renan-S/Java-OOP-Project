@@ -10,6 +10,14 @@ public class Compra {
 		
 	}
 	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Compra [id=").append(id).append(", produto=").append(produto).append(", cliente=")
+				.append(cliente).append("]");
+		return builder.toString();
+	}
+
 	public int getId() {
 		return id;
 	}

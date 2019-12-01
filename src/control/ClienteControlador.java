@@ -19,7 +19,7 @@ public class ClienteControlador implements IClienteControlador {
 	}
 
 	private ClienteControlador() {
-		this.repositoriocliente = ClienteRepositorio.getInstancia();
+		repositoriocliente = ClienteRepositorio.getInstancia();
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class ClienteControlador implements IClienteControlador {
 	@Override
 	public Cliente procurarCliente(String cpf) throws ClienteExcecao {
 		if (cpf == null || cpf.isEmpty()) {
-			throw new ClienteExcecao("Cpf invalido");
+			throw new ClienteExcecao("Cpf inválido");
 		}
 		return repositoriocliente.procurarCliente(cpf);
 	}
@@ -47,10 +47,10 @@ public class ClienteControlador implements IClienteControlador {
 	@Override
 	public void removerCliente(String cpf) throws ClienteExcecao {
 		if (cpf == null || cpf.isEmpty()) {
-			throw new ClienteExcecao("Cpf invalido");
+			throw new ClienteExcecao("Cpf inválido");
 		}
 		if (!repositoriocliente.existeCliente(cpf)) {
-			throw new ClienteExcecao("Nao existe nenhum cliente com o cpf " + cpf);
+			throw new ClienteExcecao("Não existe nenhum cliente com o cpf " + cpf);
 		}
 		repositoriocliente.removerCliente(cpf);
 	}
@@ -58,15 +58,15 @@ public class ClienteControlador implements IClienteControlador {
 	@Override
 	public void atualizarCliente(Cliente c) throws ClienteExcecao {
 		if (c == null) {
-			throw new ClienteExcecao("Cliente invalido");
+			throw new ClienteExcecao("Cliente inválido");
 		}
 		if (!repositoriocliente.existeCliente(c.getCpf())) {
-			throw new ClienteExcecao("Nao existe nenhum cliente com o cpf " + c.getCpf());
+			throw new ClienteExcecao("Não existe nenhum cliente com o cpf " + c.getCpf());
 		}
 		
 		Cliente c2 = Fachada.getInstancia().procurarCliente(c.getCpf());
 		if(!c2.getCpf().equals(c.getCpf())) {
-			throw new ClienteExcecao("N�o podemos alterar o cpf");
+			throw new ClienteExcecao("Não podemos alterar o cpf");
 		}
 		repositoriocliente.atualizarCliente(c2);
 
@@ -75,10 +75,10 @@ public class ClienteControlador implements IClienteControlador {
 	public void implementarDesconto(Cliente c) throws ClienteExcecao {
 
 		if (c.getFormapagamento().equals("Dinheiro")) {
-			c.setDesconto(10 / 100);
+			c.setDesconto(0.1);
 
 		} else if (c.getFormapagamento().equals("Debito")) {
-			c.setDesconto(10 / 100);
+			c.setDesconto(0.1);
 
 		} else {
 			c.setDesconto(0);

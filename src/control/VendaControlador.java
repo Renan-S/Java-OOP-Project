@@ -3,6 +3,7 @@ package control;
 import exception.VendaExcecao;
 import model.Venda;
 import repository.IVendaRepositorio;
+import repository.VendaRepositorio;
 
 public class VendaControlador  implements IVendaControlador {
 	private static IVendaRepositorio vendaRepositorio;
@@ -13,7 +14,7 @@ public class VendaControlador  implements IVendaControlador {
 	}
 	
 	private VendaControlador() {
-		
+		vendaRepositorio = VendaRepositorio.getInstancia();
 	}
 	
 	@Override
@@ -30,7 +31,7 @@ public class VendaControlador  implements IVendaControlador {
 	@Override
 	public Venda searchVendaPorId(int id) throws VendaExcecao {
 		if (id <= 0) {
-    		throw new VendaExcecao("Id inválido");
+    		throw new VendaExcecao("Id invÃ¡lido");
     	}
         return vendaRepositorio.searchVendaPorId(id);
     }
@@ -38,11 +39,11 @@ public class VendaControlador  implements IVendaControlador {
 	@Override
 	public void deleteVenda(int id) throws VendaExcecao {
 		if (id <= 0) {
-    		throw new VendaExcecao("Venda inválida");
+    		throw new VendaExcecao("Venda invÃ¡lida");
     	}
     	
     	if (!vendaRepositorio.errorVenda(id)) {
-    		throw new VendaExcecao("Não existe nenhum venda com o código " + id);
+    		throw new VendaExcecao("NÃ£o existe nenhum venda com o cÃ³digo " + id);
     	}
     	
     	vendaRepositorio.deleteVenda(id);
@@ -52,7 +53,7 @@ public class VendaControlador  implements IVendaControlador {
 	@Override
 	public void updateVenda(Venda venda) throws VendaExcecao {
 		if (venda == null) {
-    		throw new VendaExcecao("Venda inválida");
+    		throw new VendaExcecao("Venda invÃ¡lida");
     	}
 
         if (!vendaRepositorio.errorVenda(venda.getId())){

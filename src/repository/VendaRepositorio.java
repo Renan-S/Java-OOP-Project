@@ -35,7 +35,7 @@ public class VendaRepositorio implements IVendaRepositorio {
 		return null;
 	}
 
-	//vendaUi aqui � um objeto que vem da UI, e foi assim definido para n�o ficar duplicado com o objeto do reposit�rio
+	//vendaUi aqui é um objeto que vem da UI, e foi assim definido para não ficar duplicado com o objeto do repositório
 	@Override
 	public void updateVenda(Venda vendaUI) throws VendaExcecao {
 		for (Venda venda : listaVenda) {

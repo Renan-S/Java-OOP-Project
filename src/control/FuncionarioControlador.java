@@ -2,6 +2,7 @@ package control;
 
 import exception.FuncionarioExcecao;
 import model.Funcionario;
+import repository.FuncionarioRepositorio;
 import repository.IFuncionarioRepositorio;
 import util.Util;
 
@@ -14,16 +15,16 @@ public class FuncionarioControlador implements IFuncionarioControlador {
 	}
 	
 	private FuncionarioControlador() {
-		
+		funcionarioRepositorio = FuncionarioRepositorio.getInstancia();
 	}
 
 	@Override
 	public void createFuncionario(Funcionario funcionario) throws FuncionarioExcecao{
 		if( funcionario == null) {
-			throw new FuncionarioExcecao("funcionario invalido");
+			throw new FuncionarioExcecao("Funcionario invalido");
 		}
 		if(funcionarioRepositorio.errorFuncionario(funcionario.getRg())) {
-			throw new FuncionarioExcecao("funcionario ja existe");
+			throw new FuncionarioExcecao("Funcionario ja existe");
 		}
 //		if (!Util.isCPF(funcionario.getCpf())) {
 //			throw new FuncionarioExcecao("CPF invalido");

@@ -1,6 +1,5 @@
 package control;
 
- 
 import exception.FornecedorExcecao;
 import model.Fornecedor;
 import repository.FornecedorRepositorio;
@@ -25,13 +24,13 @@ public class FornecedorControlador implements IFornecedorControlador {
 	@Override
 	public void adicionar(Fornecedor fornecedor) throws FornecedorExcecao {
 		if (fornecedor == null) {
-			throw new FornecedorExcecao("Fornecedor Inv·lido");
+			throw new FornecedorExcecao("Fornecedor Inv√°lido");
 		}
 		if (fornecedor.getCnpj() == null) {
-			throw new FornecedorExcecao("CNPJ Inv·lido");
+			throw new FornecedorExcecao("CNPJ Inv√°lido");
 		}
 		if (repositorio.procurar(fornecedor.getCnpj()) != null){
-			throw new FornecedorExcecao("Fornecedor j· existe");
+			throw new FornecedorExcecao("Fornecedor j√° existe");
 		}
 		repositorio.adicionar(fornecedor);	
 	}
@@ -42,7 +41,7 @@ public class FornecedorControlador implements IFornecedorControlador {
 		Fornecedor fornecedor = repositorio.procurar(cnpj);
 		
 		if (fornecedor == null) {
-			throw new FornecedorExcecao("Fornecedor n„o encontrado");
+			throw new FornecedorExcecao("Fornecedor n√£o encontrado");
 		}
 		return fornecedor;
 	}
@@ -57,16 +56,16 @@ public class FornecedorControlador implements IFornecedorControlador {
 	public void atualizar(Fornecedor fornecedor) throws FornecedorExcecao {
 		
 		if (fornecedor == null) {
-			throw new FornecedorExcecao("Fornecedor Inv·lido");
+			throw new FornecedorExcecao("Fornecedor Inv√°lido");
 		}
 		if (fornecedor.getCnpj() == null) {
-			throw new FornecedorExcecao("CNPJ Inv·lido");
+			throw new FornecedorExcecao("CNPJ Inv√°lido");
 		}
 		
 		Fornecedor f = this.procurar(fornecedor.getCnpj());
 		
 		if (!f.getCnpj().equals(fornecedor.getCnpj())){
-			throw new FornecedorExcecao("N„o podemos alterar o CNPJ");
+			throw new FornecedorExcecao("N√£o podemos alterar o CNPJ");
 		}
 		
 		repositorio.atulalizar(fornecedor);
@@ -74,4 +73,3 @@ public class FornecedorControlador implements IFornecedorControlador {
 	
 
 }
-

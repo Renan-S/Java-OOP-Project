@@ -22,11 +22,13 @@ public class Principal extends UI {
 					break;
 				case 2: 
 					ui = new FuncionarioUI();
+					break;
 				case 3: 
 					ui = new FornecedorUI();
 					break;
 				case 4:
 					ui = new ProdutoUI();
+					break;
 				case 5: 
 					ui = new VendaUI();
 					break;

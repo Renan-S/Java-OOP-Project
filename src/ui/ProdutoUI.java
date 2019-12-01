@@ -29,7 +29,7 @@ public class ProdutoUI extends UI {
 				continuar = false;
 				break;
 			default:
-				println("op��o invalida");
+				println("opção invalida");
 				break;
 			}
 		}while(continuar);
@@ -38,7 +38,7 @@ public class ProdutoUI extends UI {
 	private void createProduto(){
 		Produto produtoUI = new Produto();
 		println("Crie um idenficador único para o produto");
-		produtoUI.setId(scanInt());
+		produtoUI.setIdProduto(scanInt());
 		println("Insira o nome");
 		produtoUI.setNomeProduto(scanTxt());
 		println("Defina o tipo");
@@ -75,7 +75,7 @@ public class ProdutoUI extends UI {
 	}
 
 	private void searchProdutoPorId() {
-		println("Insira o identificador único");
+		println("Insira o identificador único (Id)");
 		int id = scanInt();
 
 		try {
@@ -92,25 +92,37 @@ public class ProdutoUI extends UI {
 	}
 
 	private void updateProduto() {
-		Produto produtoUI = new Produto();
-		println("Crie um idenficador único para o produto");
-		produtoUI.setId(scanInt());
-		println("Insira o nome");
-		produtoUI.setNomeProduto(scanTxt());
-		println("Defina o tipo");
-		produtoUI.setTipo(scanTxt());
-		println("Insira a data de fabricação");
-		produtoUI.setFabricacao(scanTxt());
-		println("Digite a data de validade");
-		produtoUI.setValidade(scanTxt());
-		println("Defina o valor em reais");
-		produtoUI.setValor(scanDouble());
-		println("Digite a quantidade");
-		produtoUI.setQuantidade(scanInt());
-
 		try {
+			println("Por favor, digite o Id do produto que será atualizada");
+			Produto produtoUI = Fachada.getInstancia().searchProdutoPorId(scanInt());
+
+			println("Insira os dados do produto");
+			print("Nome(" + produtoUI.getNomeproduto() + "): ");
+			String nomeproduto = scanTxt();
+			if(!nomeproduto.isEmpty()) {
+				produtoUI.setNomeProduto(nomeproduto);
+			}
+			print("Tipo(" + produtoUI.getTipo() + "): ");
+			String tipo = scanTxt();
+			if(!tipo.isEmpty()) {
+				produtoUI.setTipo(tipo);
+			}
+			print("Valor(" + produtoUI.getValor() + "): ");
+			double valor = scanDouble();
+			if(valor <= 0) {
+				produtoUI.setValor(valor);
+			}
+			print("Quantidade(" + produtoUI.getQuantidade() + "): ");
+			int quantidade = scanInt();
+			if(quantidade <= 0) {
+				produtoUI.setQuantidade(quantidade);
+			}
+
 			Fachada.getInstancia().updateProduto(produtoUI);
 			println("Produto modificado e atualizado");
+			println("Seu produto ficou desse modo: ");
+			print(produtoUI.toString());
+			
 		}catch (ProdutoExcecao e){
 			e.printStackTrace();
 			println(e.getMessage());

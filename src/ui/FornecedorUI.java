@@ -1,22 +1,21 @@
 package ui;
 
-
-
 import control.FornecedorControlador;
 import control.IFornecedorControlador;
 import exception.FornecedorExcecao;
 import model.Endereco;
 import model.Fornecedor;
+import model.Produto;
 
 public class FornecedorUI extends UI {
 
 	private static IFornecedorControlador controler = FornecedorControlador.getInstancia();
-	
 
 	private static void adicionar() {
 		Fornecedor f = new Fornecedor();
 		Endereco end = new Endereco();
-		
+		Produto produto = new Produto();
+
 		print("Nome: ");
 		f.setNome(scanTxt());
 		print("CNPJ: ");
@@ -37,13 +36,28 @@ public class FornecedorUI extends UI {
 		end.setNumero(scanInt());
 		print("Cidade: ");
 		end.setCidade(scanTxt());
+		print("ID do produto: ");
+		produto.setIdProduto(scanInt());
+		print("Nome do Produto: ");
+		produto.setNomeProduto(scanTxt());
+		print("Tipo: ");
+		produto.setTipo(scanTxt());
+		print("Valor: ");
+		produto.setValor(scanDouble());
+		print("Quantidade: ");
+		produto.setQuantidade(scanInt());
+		print("Data de Validade: ");
+		produto.setValidade(scanTxt());
+		print("Data de Fabrica√ß√£o: ");
+		produto.setFabricacao(scanTxt());
 		
+		f.setProduto(produto);
 		f.setEndereco(end);
-		
+
 		try {
 			controler.adicionar(f);
 			println("Fornecedor adicionado com sucesso");
-		}catch(FornecedorExcecao e) {
+		} catch (FornecedorExcecao e) {
 			println(e.getMessage());
 		}
 
@@ -52,8 +66,8 @@ public class FornecedorUI extends UI {
 	private static void procurar() {
 		try {
 			print("Digite o CNPJ: ");
-			println(controler.procurar(scanTxt()).toString());	
-		}catch(FornecedorExcecao e) {
+			println(controler.procurar(scanTxt()).toString());
+		} catch (FornecedorExcecao e) {
 			println(e.getMessage());
 		}
 
@@ -64,7 +78,7 @@ public class FornecedorUI extends UI {
 			print("Digite o CNPJ: ");
 			controler.remover(scanTxt());
 			println("Fonecedor removido com sucesso");
-		}catch(FornecedorExcecao e) {
+		} catch (FornecedorExcecao e) {
 			println(e.getMessage());
 		}
 
@@ -75,54 +89,54 @@ public class FornecedorUI extends UI {
 			print("Digite o CNPJ: ");
 			Fornecedor f = controler.procurar(scanTxt());
 			Endereco end = f.getEndereco();
-			
+
 			print("Nome(" + f.getNome() + "): ");
 			String nome = scanTxt();
-			if(!nome.isEmpty()) {
+			if (!nome.isEmpty()) {
 				f.setNome(nome);
 			}
 			print("Email(" + f.getEmail() + "): ");
 			String email = scanTxt();
-			if(!email.isEmpty()) {
+			if (!email.isEmpty()) {
 				f.setEmail(email);
 			}
 			print("Responsavel(" + f.getResponsavel() + "): ");
 			String responsavel = scanTxt();
-			if(!responsavel.isEmpty()) {
+			if (!responsavel.isEmpty()) {
 				f.setResponsavel(responsavel);
 			}
 			print("Cep(" + end.getCep() + "): ");
 			String cep = scanTxt();
-			if(!cep.isEmpty()) {
+			if (!cep.isEmpty()) {
 				end.setCep(cep);
 			}
 			print("Rua(" + end.getRua() + "): ");
 			String rua = scanTxt();
-			if(!rua.isEmpty()) {
+			if (!rua.isEmpty()) {
 				end.setRua(rua);
 			}
 			print("Bairro(" + end.getBairro() + "): ");
 			String bairro = scanTxt();
-			if(!bairro.isEmpty()) {
+			if (!bairro.isEmpty()) {
 				end.setBairro(bairro);
 			}
 			print("Complemento(" + end.getComplemento() + "): ");
 			String complemento = scanTxt();
-			if(!complemento.isEmpty()) {
+			if (!complemento.isEmpty()) {
 				end.setComplemento(complemento);
 			}
 			print("Numero(" + end.getNumero() + "): ");
 			int numero = scanInt();
-			if(numero != 0) {
+			if (numero != 0) {
 				end.setNumero(numero);
 			}
 			print("Cidade(" + end.getCidade() + "): ");
 			String cidade = scanTxt();
-			if(!cidade.isEmpty()) {
+			if (!cidade.isEmpty()) {
 				end.setCidade(cidade);
 			}
 			controler.atualizar(f);
-		}catch(FornecedorExcecao e) {
+		} catch (FornecedorExcecao e) {
 			println(e.getMessage());
 		}
 
@@ -155,12 +169,10 @@ public class FornecedorUI extends UI {
 				continuar = false;
 				break;
 			default:
-				println("OpÁ„o Inv·lida");
+				println("Op√ß√£o Inv√°lida");
 			}
 
 		} while (continuar);
 	}
 
-
 }
-

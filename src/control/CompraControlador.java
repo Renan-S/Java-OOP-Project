@@ -2,6 +2,7 @@ package control;
 
 
 import model.Compra;
+import repository.CompraRepositorio;
 import repository.ICompraRepositorio;
 import exception.CompraExcecao;
 
@@ -14,7 +15,7 @@ public class CompraControlador implements ICompraControlador {
 	}
 	
 	private CompraControlador() {
-		
+		compraRepositorio = CompraRepositorio.getInstancia();
 	}
 	
 	@Override
@@ -31,7 +32,7 @@ public class CompraControlador implements ICompraControlador {
 	@Override
 	public Compra searchCompraPorId(int id) throws CompraExcecao {
 		if (id <= 0) {
-    		throw new CompraExcecao("Id inválido");
+    		throw new CompraExcecao("Id invÃ¡lido");
     	}
         return compraRepositorio.searchCompraPorId(id);
     }
@@ -39,11 +40,11 @@ public class CompraControlador implements ICompraControlador {
 	@Override
 	public void deleteCompra(int id) throws CompraExcecao {
 		if (id <= 0) {
-    		throw new CompraExcecao("Compra inválida");
+    		throw new CompraExcecao("Compra invÃ¡lida");
     	}
     	
     	if (!compraRepositorio.errorCompra(id)) {
-    		throw new CompraExcecao("Não existe nenhuma compra com o código " + id);
+    		throw new CompraExcecao("NÃ£o existe nenhuma compra com o cÃ³digo " + id);
     	}
     	
     	compraRepositorio.deleteCompra(id);
@@ -53,7 +54,7 @@ public class CompraControlador implements ICompraControlador {
 	@Override
 	public void updateCompra(Compra compra) throws CompraExcecao {
 		if (compra == null) {
-    		throw new CompraExcecao("Compra inválida");
+    		throw new CompraExcecao("Compra invÃ¡lida");
     	}
 
         if (!compraRepositorio.errorCompra(compra.getId())){
