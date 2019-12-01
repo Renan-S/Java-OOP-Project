@@ -1,7 +1,7 @@
   
 package model;
 
-public class Venda {
+public class Venda extends Impostos{
 	private int id;
 	private Produto produto;
 	private Fornecedor fornecedor;
@@ -9,12 +9,17 @@ public class Venda {
 	public Venda() {
 		
 	}
-
+	
+	public Venda(double icms, double iss, double ipi) {
+		super(icms, iss, ipi);
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Venda [id=").append(id).append(", produto=").append(produto).append(", fornecedor=")
-				.append(fornecedor).append("]");
+				.append(fornecedor).append(", getIcms()=").append(getIcms()).append(", getIss()=").append(getIss())
+				.append(", getIpi()=").append(getIpi()).append("]");
 		return builder.toString();
 	}
 

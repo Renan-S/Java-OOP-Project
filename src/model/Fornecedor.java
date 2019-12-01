@@ -14,7 +14,6 @@ public class Fornecedor extends Pessoa {
 	
 	public Fornecedor(String nome, String sexo, String email, String cpf, Endereco endereco) {
 		super(nome, sexo, email, cpf, endereco);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

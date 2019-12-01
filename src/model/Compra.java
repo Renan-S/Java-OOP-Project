@@ -1,12 +1,12 @@
   
 package model;
 
-public class Compra {
+public class Compra extends Impostos{
 	private int id;
 	private Produto produto;
 	private Cliente cliente;
 	
-	public Compra() {
+	public Compra(){
 		
 	}
 	
@@ -14,7 +14,8 @@ public class Compra {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Compra [id=").append(id).append(", produto=").append(produto).append(", cliente=")
-				.append(cliente).append("]");
+				.append(cliente).append(", getIcms()=").append(getIcms()).append(", getIss()=").append(getIss())
+				.append(", getIpi()=").append(getIpi()).append("]");
 		return builder.toString();
 	}
 
